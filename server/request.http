@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/orders 
+Content-Type: application/json
+
+{
+    "persons" :3,
+    "orderItems": [{
+        "name":"ジンジャーエール",
+        "qty":2
+    }]
+}

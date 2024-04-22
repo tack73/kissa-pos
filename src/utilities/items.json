@@ -1,0 +1,86 @@
+[
+  {
+    "id" : 1,
+    "name": "ジンジャーエール",
+    "type": "Drinks",
+    "price": 200,
+    "image": "img/menu/ジンジャーエール.png"
+  },
+  {
+    "id" : 2,
+    "name" : "ココア",
+    "type" : "Drinks",
+    "price" : 200,
+    "image" : "img/menu/ココア.png"
+  },
+  {
+    "id" : 3,
+    "name" : "コーヒー",
+    "type" : "Drinks",
+    "price" : 200,
+    "image" : "img/menu/コーヒー.png"
+  },
+  {
+    "id" : 4,
+    "name" : "紅茶",
+    "type" : "Drinks",
+    "price" : 200,
+    "image" : "img/menu/紅茶.png"
+  },
+  {
+    "id" : 5,
+    "name" : "オレンジジュース",
+    "type" : "Drinks",
+    "price" : 200,
+    "image" : "img/menu/オレンジジュース.png"
+  },
+  {
+    "id" : 6,
+    "name" : "ワッフル",
+    "type" : "Sweets",
+    "price" : 300,
+    "image" : "img/menu/ワッフル.png"
+  },
+  {
+    "id" : 7,
+    "name" : "パフェ",
+    "type" : "Sweets",
+    "price" : 300,
+    "image" : "img/menu/パフェ.png"
+  },
+  {
+    "id" : 8,
+    "name" : "シベリア",
+    "type" : "Sweets",
+    "price" : 300,
+    "image" : "img/menu/シベリア.png"
+  },
+  {
+    "id" : 9,
+    "name" : "カップケーキ",
+    "type" : "Sweets",
+    "price" : 300,
+    "image" : "img/menu/カップケーキ.png"
+  },
+  {
+    "id" : 10,
+    "name" : "アフォガート",
+    "type" : "Sweets",
+    "price" : 300,
+    "image" : "img/menu/アフォガート.png"
+  },
+  {
+    "id" : 11,
+    "name" : "クロックムッシュ",
+    "type" : "Foods",
+    "price" : 400,
+    "image" : "img/menu/クロックムッシュ.png"
+  },
+  {
+    "id" : 12,
+    "name" : "コンソメスープ",
+    "type" : "Foods",
+    "price" : 400,
+    "image" : "img/menu/コンソメスープ.png"
+  }
+]
