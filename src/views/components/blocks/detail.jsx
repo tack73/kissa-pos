@@ -2,7 +2,7 @@ import itemsData from "../../../utilities/items.json";
 import { useState } from "react";
 import Count from "../atoms/count.jsx";
 
-export default function Detail({ id ,order, setOrder,setTarget}) {
+export default function Detail({ id, order, setOrder, setTarget }) {
   const [quantity, setQuantity] = useState(1);
 
   if (id === null) return <div className="detail"></div>;
@@ -11,34 +11,50 @@ export default function Detail({ id ,order, setOrder,setTarget}) {
   const price = item.price;
   const image = item.image;
   const options = item.options;
-  var orderItem = { "itemId" : id, "quantity" : quantity, "options" : {} };
+  var orderItem = { itemId: id, quantity: quantity, options: {} };
   var orders = order;
-  function getUniqueStr(myStrong){
+  function getUniqueStr(myStrong) {
     var strong = 1000;
     if (myStrong) strong = myStrong;
-    return new Date().getTime().toString(16)  + Math.floor(strong*Math.random()).toString(16)
-   }
-   
-  
+    return (
+      new Date().getTime().toString(16) +
+      Math.floor(strong * Math.random()).toString(16)
+    );
+  }
+
   return (
     <div className="detail">
       <div className="detailInfo">
-        <h2>{name}</h2>
-        <p>{price} yen</p>
-        <img src={image} alt={name} className="detailImg" />
+        <div className="detailText">
+          <h2>{name}</h2>
+          <p>{price} yen</p>
+        </div>
+        <div className="backButton">
+          <button
+            onClick={() => {
+              setTarget(null);
+            }}
+          >
+            戻る
+          </button>
+        </div>
       </div>
       <div className="detailNavigation">
         <div className="detailQuantity">
           <Count quantity={quantity} setQuantity={setQuantity} />
         </div>
         <div className="detailButton">
-          <button onClick={()=>{
-            orderItem.orderId = getUniqueStr();
-            orderItem.isCompleted = false;
-            setOrder([...orders,orderItem]);
-            setQuantity(1);
-            setTarget(null);
-            }}>追加</button>
+          <button
+            onClick={() => {
+              orderItem.orderId = getUniqueStr();
+              orderItem.isCompleted = false;
+              setOrder([...orders, orderItem]);
+              setQuantity(1);
+              setTarget(null);
+            }}
+          >
+            追加
+          </button>
         </div>
       </div>
     </div>

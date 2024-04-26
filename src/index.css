@@ -1,9 +1,10 @@
 body {
   margin: 0;
   top : 5%;
-  font-family: futura-pt, sans-serif;
+  font-family: futura-pt, sans-,"zen-kaku-gothic-new", sans-serif;
   font-style: normal;
   background-color: rgba(255, 255, 255, 0);
+font-weight: 400;
 }
 
 .right {
@@ -45,6 +46,12 @@ body {
 }
 .itemCards div {
   margin: 5px;
+}
+
+.itemInfo-name {
+  font-family: "zen-kaku-gothic-new", sans-serif;
+  font-size: large;
+  font-weight: 600;
 }
 
 .itemButton {
@@ -110,4 +117,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   right : 40px;
+}
+
+.detailInfo {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  background-color: antiquewhite;
+}
+.backButton button{
+  position: fixed;
+  top: 5%;
+  right: 10%;
+  height: 10%;
+  width: 5%;
+  border: none;
 }

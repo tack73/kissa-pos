@@ -13,7 +13,7 @@ export default function Item({ id, setTarget }) {
       <div className="item">
         <img src={image} alt={name} className="itemImg" />
         <div className="itemInfo">
-          <h3>{name}</h3>
+          <p className="itemInfo-name">{name}</p>
           <p>{price} yen</p>
         </div>
       </div>
