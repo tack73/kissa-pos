@@ -1,9 +1,9 @@
 export default function Count({ quantity, setQuantity }) {
   return (
     <div className="count" style={{ display: "flex" }}>
-      <button onClick={() => setQuantity(culcQuantity("down",quantity))}>-</button>
+      <button className="plus" onClick={() => setQuantity(culcQuantity("down",quantity))}>-</button>
       <p>{quantity}</p>
-      <button onClick={() => setQuantity(culcQuantity("up",quantity))}>+</button>
+      <button className="minus" onClick={() => setQuantity(culcQuantity("up",quantity))}>+</button>
     </div>
   );
 }

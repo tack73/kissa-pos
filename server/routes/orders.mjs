@@ -8,6 +8,8 @@ router.post(
   "/",
   body("persons").notEmpty().isNumeric(),
   body("orderItems").notEmpty().isArray(),
+  body("total").notEmpty().isNumeric(),
+  body("submitId").notEmpty().isString(),
   (req, res) => {
     console.log(req.body);
     const errors = validationResult(req);
@@ -16,10 +18,12 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { persons, orderItems } = req.body;
+    const { persons, orderItems , total, submitId} = req.body;
     const order = new Order({
       persons,
       orderItems,
+      total,
+      submitId,
     });
     order.save().then((order) => {
       res.status(201).json(order);

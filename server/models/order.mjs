@@ -8,10 +8,15 @@ const orderSchema = new Schema(
     },
     orderItems: [
       {
-        name: { type: String, required: true },
-        qty: { type: Number, required: true },
+        itemId : { type: Number, required: true },
+        quantity: { type: Number, required: true },
+        options : { type : Object, required : false},
+        orderId : { type : String, required : true},
+        isCompleted : { type : Boolean, required : true}
       },
     ],
+    total : {type : Number, required : true},
+    submitId : {type : String, required : true}
   },
   { timestamps: true }
 );

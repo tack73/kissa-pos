@@ -1,8 +1,9 @@
 import itemsData from "../../../utilities/items.json";
 import { useState } from "react";
 import Count from "../atoms/count.jsx";
+import AllergenView from "./allergenView.jsx";
 
-export default function Detail({ id, order, setOrder, setTarget }) {
+export default function Detail({ id, order, setOrder, setTarget}) {
   const [quantity, setQuantity] = useState(1);
 
   if (id === null) return <div className="detail"></div>;
@@ -35,10 +36,14 @@ export default function Detail({ id, order, setOrder, setTarget }) {
               setTarget(null);
             }}
           >
-            戻る
+            Back
           </button>
         </div>
       </div>
+      <div className="allergenView">
+        <AllergenView id = {id} />
+      </div>
+
       <div className="detailNavigation">
         <div className="detailQuantity">
           <Count quantity={quantity} setQuantity={setQuantity} />
@@ -53,7 +58,7 @@ export default function Detail({ id, order, setOrder, setTarget }) {
               setTarget(null);
             }}
           >
-            追加
+            Add
           </button>
         </div>
       </div>

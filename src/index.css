@@ -1,7 +1,7 @@
 body {
   margin: 0;
   top : 5%;
-  font-family: futura-pt, sans-,"zen-kaku-gothic-new", sans-serif;
+  font-family: "futura-pt","zen-kaku-gothic-new", sans-serif;
   font-style: normal;
   background-color: rgba(255, 255, 255, 0);
 font-weight: 400;
@@ -62,7 +62,7 @@ font-weight: 400;
   font-size: 16px;
   margin: 0px 0px;
   cursor: pointer;
-  font-family: futura-pt, sans-serif;
+  font-family: "proxima-nova", sans-serif;
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -97,14 +97,45 @@ font-weight: 400;
   margin: 0px 15px;
   width: 50px;
   height: 50px;
+  border-radius: 0.5rem;
 }
 
+.detailButton button {
+  border: none;
+  margin: 0px 30px;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: rgba(23,142,59,1);
+}
 
 .total__total{
   display: flex;
   position: fixed;
   bottom: 5%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
 }
+
+.total__title{
+  display: flex;
+  align-items: center;
+  h1 {
+    margin-right: 20px;
+  }
+}
+
+.total__order{
+  height:70vh;
+  overflow-y: scroll;
+}
+
 .total__total button{
   position: fixed;
   border: none;
@@ -123,13 +154,45 @@ font-weight: 400;
   display: flex;
   width: 100%;
   height: 20%;
-  background-color: antiquewhite;
 }
 .backButton button{
   position: fixed;
   top: 5%;
-  right: 10%;
-  height: 10%;
-  width: 5%;
+  right: 5%;
+  height: 8%;
+  width: 7%;
   border: none;
+  border-radius: 0.5rem;
+}
+.allergenView {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 15%;
+
+}
+.allergenIcons {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  top: 23%;
+  width: 330px;
+}
+
+.order {
+  width :28vw;
+}
+.orderItem {
+  display: flex;
+  align-items: center;
+}
+.orderItem__info {
+  width : 70%;
+}
+.orderItem__delete button {
+  border: none;
+  margin: 0px 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5rem;
 }

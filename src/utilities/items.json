@@ -4,83 +4,95 @@
     "name": "ジンジャーエール",
     "type": "Drinks",
     "price": 200,
-    "image": "img/menu/ジンジャーエール.png"
+    "image": "img/menu/ジンジャーエール.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 2,
     "name" : "ココア",
     "type" : "Drinks",
     "price" : 200,
-    "image" : "img/menu/ココア.png"
+    "image" : "img/menu/ココア.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 3,
     "name" : "コーヒー",
     "type" : "Drinks",
     "price" : 200,
-    "image" : "img/menu/コーヒー.png"
+    "image" : "img/menu/コーヒー.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 4,
     "name" : "紅茶",
     "type" : "Drinks",
     "price" : 200,
-    "image" : "img/menu/紅茶.png"
+    "image" : "img/menu/紅茶.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 5,
     "name" : "オレンジジュース",
     "type" : "Drinks",
     "price" : 200,
-    "image" : "img/menu/オレンジジュース.png"
+    "image" : "img/menu/オレンジジュース.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 6,
     "name" : "ワッフル",
     "type" : "Sweets",
     "price" : 300,
-    "image" : "img/menu/ワッフル.png"
+    "image" : "img/menu/ワッフル.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 7,
     "name" : "パフェ",
     "type" : "Sweets",
     "price" : 300,
-    "image" : "img/menu/パフェ.png"
+    "image" : "img/menu/パフェ.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 8,
     "name" : "シベリア",
     "type" : "Sweets",
     "price" : 300,
-    "image" : "img/menu/シベリア.png"
+    "image" : "img/menu/シベリア.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 9,
     "name" : "カップケーキ",
     "type" : "Sweets",
     "price" : 300,
-    "image" : "img/menu/カップケーキ.png"
+    "image" : "img/menu/カップケーキ.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 10,
     "name" : "アフォガート",
     "type" : "Sweets",
     "price" : 300,
-    "image" : "img/menu/アフォガート.png"
+    "image" : "img/menu/アフォガート.png",
+    "allergen" : [1,2]
   },
   {
     "id" : 11,
     "name" : "クロックムッシュ",
     "type" : "Foods",
     "price" : 400,
-    "image" : "img/menu/クロックムッシュ.png"
+    "image" : "img/menu/クロックムッシュ.png",
+    "allergen" : [1,2,18]
   },
   {
     "id" : 12,
     "name" : "コンソメスープ",
     "type" : "Foods",
     "price" : 400,
-    "image" : "img/menu/コンソメスープ.png"
+    "image" : "img/menu/コンソメスープ.png",
+    "allergen" : [1,2]
   }
 ]
