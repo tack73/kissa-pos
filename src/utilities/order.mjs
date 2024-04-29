@@ -1,4 +1,3 @@
-
 import { Schema, model } from "mongoose";
 
 const orderSchema = new Schema(
@@ -14,7 +13,6 @@ const orderSchema = new Schema(
     orderItems: [
       {
         itemId : { type: Number, required: true },
-        type : { type: String, required: true },
         quantity: { type: Number, required: true },
         options : { type : Object, required : false},
         orderId : { type : String, required : true},

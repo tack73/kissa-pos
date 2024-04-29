@@ -1,98 +1,98 @@
 [
   {
-    "id" : 1,
+    "id": 1,
     "name": "ジンジャーエール",
     "type": "Drinks",
     "price": 200,
-    "image": "img/menu/ジンジャーエール.png",
-    "allergen" : [1,2]
+    "image": "/img/menu/Ginger_Ale.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 2,
-    "name" : "ココア",
-    "type" : "Drinks",
-    "price" : 200,
-    "image" : "img/menu/ココア.png",
-    "allergen" : [1,2]
+    "id": 2,
+    "name": "ココア",
+    "type": "Drinks",
+    "price": 200,
+    "image": "/img/menu/Cocoa.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 3,
-    "name" : "コーヒー",
-    "type" : "Drinks",
-    "price" : 200,
-    "image" : "img/menu/コーヒー.png",
-    "allergen" : [1,2]
+    "id": 3,
+    "name": "コーヒー",
+    "type": "Drinks",
+    "price": 200,
+    "image": "/img/menu/coffee.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 4,
-    "name" : "紅茶",
-    "type" : "Drinks",
-    "price" : 200,
-    "image" : "img/menu/紅茶.png",
-    "allergen" : [1,2]
+    "id": 4,
+    "name": "紅茶",
+    "type": "Drinks",
+    "price": 200,
+    "image": "/img/menu/Black_Tea.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 5,
-    "name" : "オレンジジュース",
-    "type" : "Drinks",
-    "price" : 200,
-    "image" : "img/menu/オレンジジュース.png",
-    "allergen" : [1,2]
+    "id": 5,
+    "name": "オレンジジュース",
+    "type": "Drinks",
+    "price": 200,
+    "image": "/img/menu/Orange_Juice.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 6,
-    "name" : "ワッフル",
-    "type" : "Sweets",
-    "price" : 300,
-    "image" : "img/menu/ワッフル.png",
-    "allergen" : [1,2]
+    "id": 6,
+    "name": "ワッフル",
+    "type": "Sweets",
+    "price": 300,
+    "image": "/img/menu/Waffle.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 7,
-    "name" : "パフェ",
-    "type" : "Sweets",
-    "price" : 300,
-    "image" : "img/menu/パフェ.png",
-    "allergen" : [1,2]
+    "id": 7,
+    "name": "パフェ",
+    "type": "Sweets",
+    "price": 300,
+    "image": "/img/menu/Parfait.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 8,
-    "name" : "シベリア",
-    "type" : "Sweets",
-    "price" : 300,
-    "image" : "img/menu/シベリア.png",
-    "allergen" : [1,2]
+    "id": 8,
+    "name": "シベリア",
+    "type": "Sweets",
+    "price": 300,
+    "image": "/img/menu/Siberia.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 9,
-    "name" : "カップケーキ",
-    "type" : "Sweets",
-    "price" : 300,
-    "image" : "img/menu/カップケーキ.png",
-    "allergen" : [1,2]
+    "id": 9,
+    "name": "カップケーキ",
+    "type": "Sweets",
+    "price": 300,
+    "image": "/img/menu/Cupcake.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 10,
-    "name" : "アフォガート",
-    "type" : "Sweets",
-    "price" : 300,
-    "image" : "img/menu/アフォガート.png",
-    "allergen" : [1,2]
+    "id": 10,
+    "name": "アフォガート",
+    "type": "Sweets",
+    "price": 300,
+    "image": "/img/menu/Affogato.png",
+    "allergen": [1, 2]
   },
   {
-    "id" : 11,
-    "name" : "クロックムッシュ",
-    "type" : "Foods",
-    "price" : 400,
-    "image" : "img/menu/クロックムッシュ.png",
-    "allergen" : [1,2,18]
+    "id": 11,
+    "name": "クロックムッシュ",
+    "type": "Foods",
+    "price": 400,
+    "image": "/img/menu/Croque_Monsieur.png",
+    "allergen": [1, 2, 18]
   },
   {
-    "id" : 12,
-    "name" : "コンソメスープ",
-    "type" : "Foods",
-    "price" : 400,
-    "image" : "img/menu/コンソメスープ.png",
-    "allergen" : [1,2]
+    "id": 12,
+    "name": "コンソメスープ",
+    "type": "Foods",
+    "price": 400,
+    "image": "/img/menu/Consomme_Soup.png",
+    "allergen": [1, 2]
   }
 ]

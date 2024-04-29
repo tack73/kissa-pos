@@ -10,9 +10,8 @@ export default function Detail({ id, order, setOrder, setTarget}) {
   const item = itemsData.find((item) => item.id === id);
   const name = item.name;
   const price = item.price;
-  const image = item.image;
-  const options = item.options;
-  var orderItem = { itemId: id, quantity: quantity, options: {} };
+  const type = item.type;
+  var orderItem = { itemId: id, quantity: quantity, options: {} ,type : type};
   var orders = order;
   function getUniqueStr(myStrong) {
     var strong = 1000;

@@ -1,142 +1,142 @@
 [
     {
-        "id" : 1,
+        "id": 1,
         "allergen": "えび",
-        "image" : "img/allergen/えび.png"
+        "image": "/img/allergen/shrimp.png"
     },
     {
-        "id" : 2,
+        "id": 2,
         "allergen": "かに",
-        "image" : "img/allergen/かに.png"
+        "image": "/img/allergen/crab.png"
     },
     {
-        "id" : 3,
+        "id": 3,
         "allergen": "くるみ",
-        "image" : "img/allergen/くるみ.png"
+        "image": "/img/allergen/walnut.png"
     },
     {
-        "id" : 4,
-        "allergen":"小麦",
-        "image" : "img/allergen/小麦.png"
+        "id": 4,
+        "allergen": "小麦",
+        "image": "/img/allergen/wheat.png"
     },
     {
-        "id" : 5,
-        "allergen":"そば",
-        "image" : "img/allergen/そば.png"
+        "id": 5,
+        "allergen": "そば",
+        "image": "/img/allergen/buckwheat.png"
     },
     {
-        "id" : 6,
-        "allergen":"卵",
-        "image" : "img/allergen/卵.png"
+        "id": 6,
+        "allergen": "卵",
+        "image": "/img/allergen/egg.png"
     },
     {
-        "id" : 7,
-        "allergen":"乳",
-        "image" : "img/allergen/乳.png"
+        "id": 7,
+        "allergen": "乳",
+        "image": "/img/allergen/milk.png"
     },
     {
-        "id" : 8,
-        "allergen":"落花生",
-        "image" : "img/allergen/落花生(ピーナッツ).png"
+        "id": 8,
+        "allergen": "落花生",
+        "image": "/img/allergen/peanuts.png"
     },
     {
-        "id" : 9,
-        "allergen":"アーモンド",
-        "image" : "img/allergen/アーモンド.png"
+        "id": 9,
+        "allergen": "アーモンド",
+        "image": "/img/allergen/almond.png"
     },
     {
-        "id" : 10,
-        "allergen" : "あわび",
-        "image" : "img/allergen/あわび.png"
+        "id": 10,
+        "allergen": "あわび",
+        "image": "/img/allergen/abalone.png"
     },
     {
-        "id" : 11,
-        "allergen" : "いか",
-        "image" : "img/allergen/いか.png"
+        "id": 11,
+        "allergen": "いか",
+        "image": "/img/allergen/squid.png"
     },
     {
-        "id" : 12,
-        "allergen" : "いくら",
-        "image" : "img/allergen/いくら.png"
+        "id": 12,
+        "allergen": "いくら",
+        "image": "/img/allergen/salmon-roe.png"
     },
     {
-        "id" : 13,
-        "allergen" : "オレンジ",
-        "image" : "img/allergen/オレンジ.png"
+        "id": 13,
+        "allergen": "オレンジ",
+        "image": "/img/allergen/orange.png"
     },
     {
-        "id" : 14,
-        "allergen" : "カシューナッツ",
-        "image" : "img/allergen/カシューナッツ.png"
+        "id": 14,
+        "allergen": "カシューナッツ",
+        "image": "/img/allergen/cashews.png"
     },
     {
-        "id" : 15,
-        "allergen" : "キウイフルーツ",
-        "image" : "img/allergen/キウイフルーツ.png"
+        "id": 15,
+        "allergen": "キウイフルーツ",
+        "image": "/img/allergen/kiwifruit.png"
     },
     {
-        "id" : 16,
-        "allergen" : "牛肉",
-        "image" : "img/allergen/牛肉.png"
+        "id": 16,
+        "allergen": "牛肉",
+        "image": "/img/allergen/beef.png"
     },
     {
-        "id" : 17,
-        "allergen" : "ごま",
-        "image" : "img/allergen/ごま.png"
+        "id": 17,
+        "allergen": "ごま",
+        "image": "/img/allergen/sesame.png"
     },
     {
-        "id" : 18,
-        "allergen" : "さけ",
-        "image" : "img/allergen/サケ.png"
+        "id": 18,
+        "allergen": "さけ",
+        "image": "/img/allergen/salmon.png"
     },
     {
-        "id" : 19,
-        "allergen" : "さば",
-        "image" : "img/allergen/サバ.png"
+        "id": 19,
+        "allergen": "さば",
+        "image": "/img/allergen/mackerel.png"
     },
     {
-        "id" : 20,
-        "allergen" : "大豆",
-        "image" : "img/allergen/大豆.png"
+        "id": 20,
+        "allergen": "大豆",
+        "image": "/img/allergen/soy.png"
     },
     {
-        "id" : 21,
-        "allergen" : "鶏肉",
-        "image" : "img/allergen/鶏肉.png"
+        "id": 21,
+        "allergen": "鶏肉",
+        "image": "/img/allergen/chicken.png"
     },
     {
-        "id" : 22,
-        "allergen" : "バナナ",
-        "image" : "img/allergen/バナナ.png"
+        "id": 22,
+        "allergen": "バナナ",
+        "image": "/img/allergen/banana.png"
     },
     {
-        "id" : 23,
-        "allergen" : "豚肉",
-        "image" : "img/allergen/豚肉.png"
+        "id": 23,
+        "allergen": "豚肉",
+        "image": "/img/allergen/pork.png"
     },
     {
-        "id" : 24,
-        "allergen" : "まつたけ",
-        "image" : "img/allergen/まつたけ.png"
+        "id": 24,
+        "allergen": "まつたけ",
+        "image": "/img/allergen/matsutake-mushroom.png"
     },
     {
-        "id" : 25,
-        "allergen" : "もも",
-        "image" : "img/allergen/もも.png"
+        "id": 25,
+        "allergen": "もも",
+        "image": "/img/allergen/peach.png"
     },
     {
-        "id" : 26,
-        "allergen" : "やまいも",
-        "image" : "img/allergen/やまいも.png"
+        "id": 26,
+        "allergen": "やまいも",
+        "image": "/img/allergen/sweet-potato.png"
     },
     {
-        "id" : 27,
-        "allergen" : "りんご",
-        "image" : "img/allergen/りんご.png"
+        "id": 27,
+        "allergen": "りんご",
+        "image": "/img/allergen/apple.png"
     },
     {
-        "id" : 28,
-        "allergen" : "ゼラチン",
-        "image" : "img/allergen/ゼラチン.png"
+        "id": 28,
+        "allergen": "ゼラチン",
+        "image": "/img/allergen/gelatin.png"
     }
 ]

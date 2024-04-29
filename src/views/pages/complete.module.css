@@ -1,0 +1,25 @@
+.completePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.completePage h1 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+
+}
+
+.completePage button {
+    margin: 0px 15px;
+    width: 100px;
+    height: 50px;
+    border: none;
+}

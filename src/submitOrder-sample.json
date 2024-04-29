@@ -1,6 +1,3 @@
-POST http://localhost:8080/api/orders 
-Content-Type: application/json
-
 {
     "persons": 2,
     "orderItems": [
@@ -30,11 +27,3 @@ Content-Type: application/json
     "payment": "cash",
     "submitId": "18f22776a852d4"
 }
-
-###
-
-GET http://localhost:8080/api/orders/orderitems/Drinks
-
-###
-
-PATCH http://localhost:8080/api/orders/orderitems/18f29d2bb9ae1/18f29d2891b36c
