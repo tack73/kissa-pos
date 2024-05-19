@@ -9,18 +9,29 @@ import OrderItemView from "../components/atoms/orderItemView";
 const app = new Realm.App({ id: "application-0-vmbzlrz" });
 
 export default function Kitchen({ area, setArea }) {
-  // This useEffect hook will run only once when the page is loaded
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
   const [order, setOrder] = useState([]);
-  const endpoint = "/api/orders/orderitems/";
+  const [areaName, setAreaName] = useState("Drink");
+  const endpoint = "api/orders/orderitems/";
 
   function getOrderItems(area) {
     axios.get(endpoint + area).then(function (response) {
       setOrder(response.data);
     });
   }
+  function confAreaName(){
+    if(area === "Consomme_Soup"){
+      setAreaName("コンソメ");
+    }else if(area === "Qroque_Monsieur"){
+      setAreaName("QM");
+    }else {
+      setAreaName(area);
+    }
+  
+  }
   useEffect(() => {
+    confAreaName();
     const login = async () => {
       // Authenticate anonymously
       const user = await app.logIn(Realm.Credentials.anonymous());
@@ -39,18 +50,22 @@ export default function Kitchen({ area, setArea }) {
   }, []);
 
   const options = [
-    { value: "Drinks", label: "Drinks" },
-    { value: "Sweets", label: "Sweets" },
-    { value: "Foods", label: "Foods" },
+    { value: "Drink", label: "Drink" },
+    { value: "Waffle", label: "Waffle" },
+    { value: "Parfait", label: "Parfait" },
+    { value: "Qroque_Monsieur", label: "Qroque Monsieur"},
+    { value : "Consomme_Soup", label: "Consomme Soup"}
   ];
   function handleChange(e) {
     setArea(e.value);
+    confAreaName();
   }
   // Return the JSX that will generate HTML for the page
+  
   return (
     <>
       <div className={styles.nav}>
-        <h1>キッチン {area}区域 </h1>
+        <h1>{areaName}区域 </h1>
         <Select placeholder={area} options={options} isSearchable={false} onChange={handleChange} className={styles.selectView} />
       </div>
 

@@ -14,7 +14,7 @@ const orderSchema = new Schema(
     orderItems: [
       {
         itemId : { type: Number, required: true },
-        type : { type: String, required: true },
+        area : { type: String, required: true },
         quantity: { type: Number, required: true },
         options : { type : Object, required : false},
         orderId : { type : String, required : true},
@@ -23,7 +23,8 @@ const orderSchema = new Schema(
     ],
     total : {type : Number, required : true},
     submitId : {type : String, required : true},
-    isServed : {type : Boolean, required : true}
+    isServed : {type : Boolean, required : true},
+    tableNum : { type : Number, required : true}
   },
   { timestamps: true }
 );

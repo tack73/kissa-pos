@@ -38,3 +38,16 @@ GET http://localhost:8080/api/orders/orderitems/Drinks
 ###
 
 PATCH http://localhost:8080/api/orders/orderitems/18f29d2bb9ae1/18f29d2891b36c
+
+###
+
+GET http://localhost:8080/api/orders/orders
+
+###
+PATCH http://localhost:8080/api/orders/18f2ff07d902bd
+
+###
+GET http://localhost:8080/api/orders/receipt/18f2ff07d902bd
+
+###
+GET http://localhost:8080/api/menu

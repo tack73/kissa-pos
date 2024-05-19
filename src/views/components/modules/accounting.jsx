@@ -3,6 +3,10 @@ import itemsData from "../../../utilities/items.json";
 import { MdPayment, MdPayments } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+import NumPad from "../blocks/numPad";
+var tableNumHolder = 0;
 
 export default function Accounting({
   setIsProcessing,
@@ -10,8 +14,11 @@ export default function Accounting({
   setPayment,
   order,
   persons,
+  setSubmitId,
 }) {
+  const [tableNum, setTableNum] = useState(tableNumHolder);
   const navigate = useNavigate();
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   function getUniqueStr(myStrong) {
     var strong = 1000;
     if (myStrong) strong = myStrong;
@@ -33,12 +40,25 @@ export default function Accounting({
       total: total,
       payment: payment,
       submitId: getUniqueStr(),
+      tableNum: tableNum,
       isServed: false,
     };
+    setSubmitId(submitOrder.submitId);
     axios
       .post("/api/orders", submitOrder)
-      .then((response) => navigate("/complete"))
+      .then((response) => {
+        axios
+          .get(
+            `https://informed-chief-stork.ngrok-free.app/api/orders/${submitOrder.submitId}`,
+            { headers: { "ngrok-skip-browser-warning": "something" } }
+          )
+          .then((response) => navigate("/complete"))
+          .catch((error) => console.log(error));
+      })
       .catch((error) => console.log(error));
+    console.log(submitOrder);
+    // axios.get(`http://192.168.1.13:5000/api/orders/${submitOrder.submitId}`).then((response) => console.log(response.data)).catch((error) => console.log(error));
+
     console.log(submitOrder);
   }
 
@@ -67,6 +87,34 @@ export default function Accounting({
   }
   return (
     <>
+      <div className={styles.tableNum}>
+        <h2>テーブル番号 : {tableNum}</h2>
+        <button
+          onClick={() => {
+            setIsPopupVisible(true);
+            setTableNum(0);
+          }}
+        >
+          入力
+        </button>
+      </div>
+      {isPopupVisible && (
+        <div className={styles.popup}>
+          <div className={styles.popup_numpad}>
+            <NumPad setNum={setTableNum} num={tableNum} />
+          </div>
+          <div className={styles.popup_OK}>
+            <button
+              onClick={() => {
+                setIsPopupVisible(false);
+                tableNumHolder = tableNum;
+              }}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
       <div className={styles.nav}>
         <h1 className={styles.title}>決済方法を選択</h1>
         <button

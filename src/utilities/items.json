@@ -5,15 +5,8 @@
     "type": "Drinks",
     "price": 200,
     "image": "/img/menu/Ginger_Ale.png",
-    "allergen": [1, 2]
-  },
-  {
-    "id": 2,
-    "name": "ココア",
-    "type": "Drinks",
-    "price": 200,
-    "image": "/img/menu/Cocoa.png",
-    "allergen": [1, 2]
+    "allergen": [1, 2],
+    "area" : "Drink"
   },
   {
     "id": 3,
@@ -21,7 +14,8 @@
     "type": "Drinks",
     "price": 200,
     "image": "/img/menu/coffee.png",
-    "allergen": [1, 2]
+    "allergen": [],
+    "area" : "Drink"
   },
   {
     "id": 4,
@@ -29,15 +23,17 @@
     "type": "Drinks",
     "price": 200,
     "image": "/img/menu/Black_Tea.png",
-    "allergen": [1, 2]
+    "allergen": [],
+    "area" : "Drink"
   },
   {
     "id": 5,
-    "name": "オレンジジュース",
+    "name": "リンゴジュース",
     "type": "Drinks",
     "price": 200,
     "image": "/img/menu/Orange_Juice.png",
-    "allergen": [1, 2]
+    "allergen": [],
+    "area" : "Drink"
   },
   {
     "id": 6,
@@ -45,23 +41,26 @@
     "type": "Sweets",
     "price": 300,
     "image": "/img/menu/Waffle.png",
-    "allergen": [1, 2]
+    "allergen": [1, 2],
+    "area" : "Waffle"
   },
   {
     "id": 7,
-    "name": "パフェ",
+    "name": "フルーツミックスパフェ",
     "type": "Sweets",
     "price": 300,
     "image": "/img/menu/Parfait.png",
-    "allergen": [1, 2]
+    "allergen": [1, 2],
+    "area" : "Parfait"
   },
   {
-    "id": 8,
-    "name": "シベリア",
+    "id": 10,
+    "name": "抹茶パフェ",
     "type": "Sweets",
     "price": 300,
-    "image": "/img/menu/Siberia.png",
-    "allergen": [1, 2]
+    "image": "/img/menu/Parfait.png",
+    "allergen": [1, 2],
+    "area" : "Parfait"
   },
   {
     "id": 9,
@@ -69,15 +68,8 @@
     "type": "Sweets",
     "price": 300,
     "image": "/img/menu/Cupcake.png",
-    "allergen": [1, 2]
-  },
-  {
-    "id": 10,
-    "name": "アフォガート",
-    "type": "Sweets",
-    "price": 300,
-    "image": "/img/menu/Affogato.png",
-    "allergen": [1, 2]
+    "allergen": [1, 2],
+    "area" : "Waffle"
   },
   {
     "id": 11,
@@ -85,7 +77,8 @@
     "type": "Foods",
     "price": 400,
     "image": "/img/menu/Croque_Monsieur.png",
-    "allergen": [1, 2, 18]
+    "allergen": [1, 2, 18],
+    "area" : "Qroque_Monsieur"
   },
   {
     "id": 12,
@@ -93,6 +86,7 @@
     "type": "Foods",
     "price": 400,
     "image": "/img/menu/Consomme_Soup.png",
-    "allergen": [1, 2]
+    "allergen": [1, 2],
+    "area" : "Consomme_Soup"
   }
 ]

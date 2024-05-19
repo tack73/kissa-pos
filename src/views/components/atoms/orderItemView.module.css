@@ -15,8 +15,8 @@
     left: 40vw;
 }
 .complete {
-    position: fixed;
-    left: 60vw;
+    position: absolute;
+    left : 60vw;
 }
 .popup {
     position: fixed;
@@ -50,4 +50,36 @@
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+}
+
+@media screen and (max-width: 479px) {
+    .order_item {
+        width: 90vw;
+        margin: 0;
+        padding: 2vh 3vw;
+    }
+    .quantity {
+        left: 45vw;
+    }
+    .submitId {
+        left: 55vw;
+    }
+    .complete {
+        left: 88vw;
+    }
+    .popup {
+        width: 90vw;
+        height: 30vh;
+    }
+    .popup p {
+        font-size: medium;
+        margin: 20px 10px;
+    }
+    .popup_buttons {
+        width: 80%;
+    }
+    .popup_buttons button {
+        width: 40%;
+    }
+    
 }

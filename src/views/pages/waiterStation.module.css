@@ -1,0 +1,12 @@
+h1 {
+    margin-left: 20px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    p{
+        position: absolute;
+        right: 30px;
+    }
+}

@@ -1,0 +1,87 @@
+.orderView {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.tableNum {
+    margin-left: 70px;
+}
+.orders {
+    margin-left: 30px;
+}
+
+.orderItem {
+    display: flex;
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+.orderItem_quantity {
+    position: absolute;
+    left: 45vw;
+}
+
+.completeButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: 10px;
+    margin-left: 30vw;
+}
+
+.popup {
+    
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 40vh;
+    background-color: #ffffff;
+    border: 1px solid #0000007d;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    button {
+        width: 100px;
+        padding: 10px;
+        margin: 0 10px;
+        border: 1px solid #0000007d;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.printButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: 5px;
+    position: absolute;
+    left: 50px;
+    margin-top: 20px;
+}

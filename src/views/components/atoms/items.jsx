@@ -1,6 +1,8 @@
 import itemsData from "../../../utilities/items.json";
-
+import getItemsData from "../../../utilities/getItemsData.mjs";
+// const itemsData = getItemsData();
 export default function Item({ id, setTarget }) {
+  
   function handleClick() {
     setTarget(id);
   }

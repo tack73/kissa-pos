@@ -1,6 +1,9 @@
 import express from "express";
 import Order from "../models/order.mjs";
+import createReceipt from "../controllers/createReceipt.mjs";
+import fs from "fs";
 import { body, validationResult } from "express-validator";
+import pdf2base64 from 'pdf-to-base64';
 
 const router = express.Router();
 
@@ -12,6 +15,7 @@ router.post(
   body("submitId").notEmpty().isString(),
   body("payment").isIn(["cash", "square"]),
   body("isServed").isBoolean(),
+  body("tableNum").notEmpty().isNumeric(),
   (req, res) => {
     console.log(req.body);
     const errors = validationResult(req);
@@ -20,14 +24,15 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { persons, orderItems , total, submitId , payment , isServed} = req.body;
+    const { persons, orderItems , total, submitId , payment , isServed , tableNum} = req.body;
     const order = new Order({
       persons,
       orderItems,
       total,
       submitId,
       payment,
-      isServed
+      isServed,
+      tableNum
     });
     order.save().then((order) => {
       res.status(201).json(order);
@@ -35,24 +40,29 @@ router.post(
   }
 );
 
-router.get("/orderitems/:type", (req, res) => {
-  Order.find({isServed : false}).sort([["updatedAt" , -1]]).then((orders) => {
-    console.log(req.params.type)
+router.get("/orderitems/:area", (req, res) => {
+  Order.find({isServed : false}).sort([["createdAt" , -1]]).then((orders) => {
+    console.log(req.params.area)
     var orderItems = [];
     orders.forEach((order) => {
       const submitId = order.submitId;
       order.orderItems.forEach((v) => {
         var orderItem = v.toObject();
         orderItem.submitId = submitId;
-        if(orderItem.isCompleted === false && orderItem.type === req.params.type ) orderItems.push(orderItem);
-        // console.log(orderItem.type)
+        if(orderItem.isCompleted === false && orderItem.area === req.params.area ) orderItems.push(orderItem);
       });
     });
     res.json(orderItems);
   });
 });
 
-router.patch("/orderitems/:submitId/:orderId", (req, res) => {
+router.get("/orders", (req, res) => {
+  Order.find({isServed : false}).sort([["createdAt" , -1]]).then((orders) => {
+    res.json(orders);
+  });
+});
+
+router.patch("/orderitems/:submitId/:orderId", (req, res) => { //submitId 内 orderId の注文を完了にする
   Order.findOne({submitId : req.params.submitId}).then((order) => {
     order.orderItems.forEach((v) => {
       if(v.orderId === req.params.orderId) {
@@ -62,6 +72,33 @@ router.patch("/orderitems/:submitId/:orderId", (req, res) => {
     order.save().then((order) => {
       res.json(order);
     });
+  });
+});
+
+router.patch("/:submitId", (req, res) => { //submitId の注文を完了にする
+  Order.findOne({submitId : req.params.submitId}).then((order) => {
+    order.isServed = true;
+    order.save().then((order) => {
+      res.json(order);
+    });
+  });
+});
+
+router.get("/receipt/:submitId", (req, res) => {
+  Order.findOne({submitId : req.params.submitId}).then((order) => {
+    (async () => {
+      await createReceipt(order);
+      pdf2base64(`./server/tmp/${order.submitId}.pdf`)
+        .then((base64) => {
+          res.send(base64);
+          fs.rm(`./server/tmp/${order.submitId}.pdf`, (err) => {
+            if (err) {
+              console.error(err);
+            }
+          });
+        });
+
+    })();
   });
 });
 
