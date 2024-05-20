@@ -4,16 +4,24 @@ export const itemsData = [
     "name": "ジンジャーエール",
     "type": "Drinks",
     "price": 200,
-    "image": "/img/menu/Ginger_Ale.png",
-    "allergen": [1, 2],
+    "image": "/img/menu/Ginger_Ale.jpg",
+    "allergen": [],
+    "area" : "Drink"
+  },{
+    "id": 2,
+    "name": "アイスコーヒー",
+    "type": "Drinks",
+    "price": 200,
+    "image": "/img/menu/Orange_Juice.png",
+    "allergen": [],
     "area" : "Drink"
   },
   {
     "id": 3,
-    "name": "コーヒー",
+    "name": "ホットコーヒー",
     "type": "Drinks",
     "price": 200,
-    "image": "/img/menu/coffee.png",
+    "image": "/img/menu/coffee.jpg",
     "allergen": [],
     "area" : "Drink"
   },
@@ -31,8 +39,8 @@ export const itemsData = [
     "name": "リンゴジュース",
     "type": "Drinks",
     "price": 200,
-    "image": "/img/menu/Orange_Juice.png",
-    "allergen": [],
+    "image": "/img/menu/Apple_Juice.png",
+    "allergen": [27],
     "area" : "Drink"
   },
   {
@@ -40,7 +48,7 @@ export const itemsData = [
     "name": "ワッフル",
     "type": "Sweets",
     "price": 300,
-    "image": "/img/menu/Waffle.png",
+    "image": "/img/menu/waffle.jpg",
     "allergen": [1, 2],
     "area" : "Waffle"
   },
@@ -49,7 +57,7 @@ export const itemsData = [
     "name": "フルーツミックスパフェ",
     "type": "Sweets",
     "price": 300,
-    "image": "/img/menu/Parfait.png",
+    "image": "/img/menu/Parfait.jpg",
     "allergen": [1, 2],
     "area" : "Parfait"
   },
@@ -58,7 +66,7 @@ export const itemsData = [
     "name": "抹茶パフェ",
     "type": "Sweets",
     "price": 300,
-    "image": "/img/menu/Parfait.png",
+    "image": "/img/menu/matcha_parfait.jpg",
     "allergen": [1, 2],
     "area" : "Parfait"
   },
@@ -76,8 +84,8 @@ export const itemsData = [
     "name": "クロックムッシュ",
     "type": "Foods",
     "price": 400,
-    "image": "/img/menu/Croque_Monsieur.png",
-    "allergen": [1, 2, 18],
+    "image": "/img/menu/QM.jpg",
+    "allergen": [4,6,7,20,21,23],
     "area" : "Qroque_Monsieur"
   },
   {
@@ -85,7 +93,7 @@ export const itemsData = [
     "name": "コンソメスープ",
     "type": "Foods",
     "price": 400,
-    "image": "/img/menu/Consomme_Soup.png",
+    "image": "/img/menu/connsome.jpg",
     "allergen": [1, 2],
     "area" : "Consomme_Soup"
   }
