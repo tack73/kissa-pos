@@ -53,7 +53,10 @@ export default function Accounting({
             { headers: { "ngrok-skip-browser-warning": "something" } }
           )
           .then((response) => navigate("/complete"))
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+            navigate("/complete");
+          });
       })
       .catch((error) => console.log(error));
     console.log(submitOrder);
