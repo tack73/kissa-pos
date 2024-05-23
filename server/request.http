@@ -50,4 +50,4 @@ PATCH http://localhost:8080/api/orders/18f2ff07d902bd
 GET http://localhost:8080/api/orders/receipt/18f2ff07d902bd
 
 ###
-GET http://localhost:8080/api/menu
+GET http://localhost:8080/api/orders/info

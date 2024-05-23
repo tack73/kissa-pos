@@ -12,6 +12,7 @@ import KitchenDrink from "./views/pages/kitchen.jsx";
 import Complete from "./views/pages/complete.jsx";
 import Home from "./views/pages/home.jsx";
 import WaiterStation from "./views/pages/waiterStation.jsx";
+import InventryCheck from "./views/pages/inventryCheck.jsx";
 
 function App() {
   const [order, setOrder] = useState([]);
@@ -63,6 +64,7 @@ function App() {
         <Route path="/kitchen" element={<Kitchen />} />
         <Route path="/complete" element={<Complete init={init} submitId={submitId} />} />
         <Route path="/waiterstation" element={<WaiterStation />} />
+        <Route path="/inventrycheck" element={<InventryCheck />} />
       </Routes>
     </Router>
   );
