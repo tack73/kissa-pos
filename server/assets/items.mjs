@@ -11,7 +11,7 @@ export const itemsData = [
     "id": 2,
     "name": "アイスコーヒー",
     "type": "Drinks",
-    "price": 100,
+    "price": 200,
     "image": "/img/menu/Orange_Juice.png",
     "allergen": [],
     "area" : "Drink"
@@ -20,7 +20,7 @@ export const itemsData = [
     "id": 3,
     "name": "ホットコーヒー",
     "type": "Drinks",
-    "price": 100,
+    "price": 200,
     "image": "/img/menu/coffee.jpg",
     "allergen": [],
     "area" : "Drink"
@@ -29,7 +29,7 @@ export const itemsData = [
     "id": 4,
     "name": "紅茶",
     "type": "Drinks",
-    "price": 100,
+    "price": 200,
     "image": "/img/menu/Black_Tea.png",
     "allergen": [],
     "area" : "Drink"
