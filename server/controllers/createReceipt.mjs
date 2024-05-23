@@ -15,7 +15,7 @@ export default async function createReceipt(order) {
     var { width, height } = page.getSize();
     height = height - 10;
     // const pngImageBytes = fs.readFileSync('./server/assets/reciept-header.png'); //本番環境用
-    const pngImageBytes = fs.readFileSync('./server/assets/reciept-header-5mogi.png');//5模擬用
+    const pngImageBytes = fs.readFileSync('./server/assets/reciept-header-5mogi-2.png');//5模擬用
     const pngImage = await pdfDoc.embedPng(pngImageBytes);
     page.drawImage(pngImage, {
         x: (204.1-164.41)/2 ,
