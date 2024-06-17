@@ -18,7 +18,7 @@ export default function Kitchen({ area, setArea }) {
   const [order, setOrder] = useState([]);
   const [areaName, setAreaName] = useState("Drink");
   const [items, setItems] = useState([]);
-  const [isPopupVisible, setIsPopupVisible] = useState(true);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const endpoint = "api/status/";
 
   function getOrderItems(area) {
