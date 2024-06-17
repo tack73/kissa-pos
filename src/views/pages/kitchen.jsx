@@ -18,6 +18,7 @@ export default function Kitchen({ area, setArea }) {
   const [order, setOrder] = useState([]);
   const [areaName, setAreaName] = useState("Drink");
   const [items, setItems] = useState([]);
+  const [isPopupVisible, setIsPopupVisible] = useState(true);
   const endpoint = "api/status/";
 
   function getOrderItems(area) {
@@ -79,10 +80,11 @@ export default function Kitchen({ area, setArea }) {
     initialActive[status] = true;
     const [active, setActive] = useState(initialActive);
     function handleActive(index){
+      setIsPopupVisible(true);
       // let newActive = [false,false,false];
       // newActive[index] = !newActive[index];
       // setActive(newActive);
-      axios.patch("/api/status/",{id:id,status:index});
+      axios.patch("/api/status/",{id:id,status:index}).then(()=>{isPopupVisible(false)});
     }
     return (
       <div className={styles.itemView}>
@@ -105,6 +107,14 @@ export default function Kitchen({ area, setArea }) {
     );
   }
 
+  function Popup(){
+    return(
+      <div className={styles.popup}>
+        <p>更新中</p>
+      </div>
+    )
+  }
+
   return (
     <>
       <div className={styles.nav}>
@@ -120,9 +130,11 @@ export default function Kitchen({ area, setArea }) {
       <div>
         <h1>提供状況</h1>
         {items.map((item, index) => (
-          <AvailabilityView itemName={item.name} id={item.id} status={item.status} />
+          // <AvailabilityView itemName={item.name} id={item.id} status={item.status} />
+          true
         ))}
       </div>
+      {isPopupVisible && <Popup />}
     </>
   );
 }
