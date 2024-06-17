@@ -130,8 +130,7 @@ export default function Kitchen({ area, setArea }) {
       <div>
         <h1>提供状況</h1>
         {items.map((item, index) => (
-          // <AvailabilityView itemName={item.name} id={item.id} status={item.status} />
-          true
+          <AvailabilityView itemName={item.name} id={item.id} status={item.status} />
         ))}
       </div>
       {isPopupVisible && <Popup />}
