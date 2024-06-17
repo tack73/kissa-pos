@@ -16,3 +16,26 @@
 .selectView{
     width: 120px;
 }
+
+.registButton_click{
+    width: 30vw;
+    height: 150px;
+    margin-right: 10px;
+    background-color: #ced4da;
+    border: 1px solid #ced4da;
+}
+.registButton_notClick{
+    width: 30vw;
+    height: 150px;
+    margin-right: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.itemView{
+    margin-left: 30px;
+}

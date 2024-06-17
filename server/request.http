@@ -51,3 +51,12 @@ GET http://localhost:8080/api/orders/receipt/18f2ff07d902bd
 
 ###
 GET http://localhost:8080/api/orders/info
+
+###
+PATCH http://localhost:8080/api/status/
+Content-Type: application/json
+
+{
+    "id":1,
+    "status":1
+}
