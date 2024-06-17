@@ -84,7 +84,7 @@ export default function Kitchen({ area, setArea }) {
       // let newActive = [false,false,false];
       // newActive[index] = !newActive[index];
       // setActive(newActive);
-      axios.patch("/api/status/",{id:id,status:index}).then(()=>{isPopupVisible(false)});
+      axios.patch("/api/status/",{id:id,status:index}).then(()=>{setIsPopupVisible(false)});
     }
     return (
       <div className={styles.itemView}>
