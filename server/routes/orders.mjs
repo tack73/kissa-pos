@@ -57,7 +57,7 @@ router.get("/orderitems/:area", (req, res) => {
 });
 
 router.get("/orders", (req, res) => {
-  Order.find({ isServed: false }).sort([["createdAt", -1]]).then((orders) => {
+  Order.find({ isServed: false }).sort([["createdAt", 1]]).then((orders) => {
     res.json(orders);
   });
 });
