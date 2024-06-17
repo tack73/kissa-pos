@@ -79,10 +79,10 @@ export default function Kitchen({ area, setArea }) {
     initialActive[status] = true;
     const [active, setActive] = useState(initialActive);
     function handleActive(index){
-      let newActive = [false,false,false];
-      newActive[index] = !newActive[index];
-      setActive(newActive);
-      axios.patch("/api/status/",{id:id,status:index})
+      // let newActive = [false,false,false];
+      // newActive[index] = !newActive[index];
+      // setActive(newActive);
+      axios.patch("/api/status/",{id:id,status:index});
     }
     return (
       <div className={styles.itemView}>
