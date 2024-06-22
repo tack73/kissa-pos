@@ -15,7 +15,7 @@ h1 {
     column-count: 3;
     column-gap: 10px;
     position: fixed;
-    z-index: 100;
+    z-index: 99;
     top: 5vh;
     right: 3vw;
     background-color: white;
