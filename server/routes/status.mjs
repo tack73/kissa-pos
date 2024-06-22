@@ -17,6 +17,21 @@ router.get("/:area", (req, res) => {
     });
 }
 );
+router.get("/", (req, res) => {
+    Status.find().then((status) => {
+        let results = [];
+        status.forEach((element) => {
+            results.push({
+                id: element.id,
+                name: element.name,
+                status: element.status,
+                area: element.area,
+            });
+        });
+        res.json(results);
+    });
+}
+);
 
 router.patch("/", (req, res) => {
     const  id  = req.body.id;

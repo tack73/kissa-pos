@@ -7,6 +7,7 @@ export default function OrderForWaiter({ order }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   function completeOrder() {
+    // axios.patch(`/api/orders/${order.submitId}`).then((response) => {
     axios.patch(`/api/orders/${order.submitId}`).then((response) => {
       setIsPopupVisible(false);
     });
