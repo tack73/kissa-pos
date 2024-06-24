@@ -86,3 +86,14 @@
     border-radius: 1rem;
     margin-top: 20px;
 }
+.printing {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 1rem;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}

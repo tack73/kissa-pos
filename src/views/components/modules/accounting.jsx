@@ -19,6 +19,7 @@ export default function Accounting({
   const [tableNum, setTableNum] = useState(tableNumHolder);
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isPrinting, setIsPrinting] = useState(false);
   function getUniqueStr(myStrong) {
     var strong = 1000;
     if (myStrong) strong = myStrong;
@@ -44,6 +45,7 @@ export default function Accounting({
       isServed: false,
     };
     setSubmitId(submitOrder.submitId);
+    setIsPrinting(true);
     axios
       .post("/api/orders", submitOrder)
       .then((response) => {
@@ -52,9 +54,13 @@ export default function Accounting({
             `https://informed-chief-stork.ngrok-free.app/api/orders/${submitOrder.submitId}`,
             { headers: { "ngrok-skip-browser-warning": "something" } }
           )
-          .then((response) => navigate("/complete"))
+          .then((response) => {
+            setIsPrinting(false);
+            navigate("/complete");
+          })
           .catch((error) => {
             console.log(error);
+            setIsPrinting(false);
             navigate("/complete");
           });
       })
@@ -151,6 +157,11 @@ export default function Accounting({
       <div className={styles.payment}>
         <PaymentView />
       </div>
+      {isPrinting && (
+        <div className={styles.printing}>
+          <h2>印刷中...</h2>
+        </div>
+      )}
     </>
   );
 }
