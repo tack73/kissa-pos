@@ -28,7 +28,7 @@ export default function OrderForWaiter({ order }) {
                   <div className={styles.orderItem_quantity}>
                     {orderItem.quantity}
                   </div>
-                  {orderItem.isCompleted ? (
+                  {/* {orderItem.isCompleted ? (
                     <div
                       style={{
                         backgroundColor: "blue",
@@ -50,7 +50,7 @@ export default function OrderForWaiter({ order }) {
                     >
                       未調理
                     </div>
-                  )}
+                  )} */}
                 </div>
               </li>
             );

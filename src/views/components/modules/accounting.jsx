@@ -42,7 +42,7 @@ export default function Accounting({
       payment: payment,
       submitId: getUniqueStr(),
       tableNum: tableNum,
-      isServed: false,
+      isServed: true,
     };
     setSubmitId(submitOrder.submitId);
     setIsPrinting(true);

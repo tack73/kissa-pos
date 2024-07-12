@@ -62,7 +62,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/pos" element={<Pos />} />
         <Route path="/kitchen" element={<Kitchen />} />
-        <Route path="/complete" element={<Complete init={init} submitId={submitId} />} />
+        <Route path="/complete" element={<Complete init={init} submitId={submitId} order={order} />} />
         <Route path="/waiterstation" element={<WaiterStation />} />
         <Route path="/inventrycheck" element={<InventryCheck />} />
       </Routes>

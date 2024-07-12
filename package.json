@@ -10,6 +10,7 @@
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "express-validator": "^7.0.1",
+    "jspdf": "^2.5.1",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.2",
     "pdf-lib": "^1.17.1",
