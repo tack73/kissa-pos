@@ -38,7 +38,7 @@ const itemsData = [
       "id": 5,
       "name": "リンゴジュース",
       "type": "Drinks",
-      "price": 100,
+      "price": 200,
       "image": "/img/menu/Orange_Juice.png",
       "allergen": [27],
       "area" : "Drink"
@@ -47,14 +47,14 @@ const itemsData = [
       "id": 6,
       "name": "ワッフル",
       "type": "Sweets",
-      "price": 400,
+      "price": 300,
       "image": "/img/menu/waffle.jpg",
       "allergen": [1, 2],
       "area" : "Waffle"
     },
     {
       "id": 7,
-      "name": "フルーツミックスパフェ",
+      "name": "ベリーパフェ",
       "type": "Sweets",
       "price": 400,
       "image": "/img/menu/Parfait.jpg",
@@ -72,7 +72,7 @@ const itemsData = [
     },
     {
       "id": 9,
-      "name": "カップケーキ",
+      "name": "タルト",
       "type": "Sweets",
       "price": 400,
       "image": "/img/menu/Cupcake.png",
@@ -92,7 +92,7 @@ const itemsData = [
       "id": 12,
       "name": "コンソメスープ",
       "type": "Foods",
-      "price": 200,
+      "price": 300,
       "image": "/img/menu/consomme.jpg",
       "allergen": [1, 2],
       "area" : "Consomme_Soup"
