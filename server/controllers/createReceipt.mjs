@@ -1,7 +1,7 @@
 import {PDFDocument , StandardFonts} from 'pdf-lib';
 import fs from 'fs';
 import fontkit from '@pdf-lib/fontkit';
-import itemsData from "../assets/items.mjs";
+import {itemsData} from "../assets/items.mjs";
 
 
 export default async function createReceipt(order) {

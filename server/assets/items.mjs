@@ -1,4 +1,4 @@
-const itemsData = [
+export const itemsData = [
   {
     "id": 1,
     "name": "ジンジャーエール",
@@ -98,5 +98,3 @@ const itemsData = [
     "area" : "Consomme_Soup"
   }
 ]
-
-export default itemsData;
