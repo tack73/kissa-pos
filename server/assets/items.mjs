@@ -1,4 +1,4 @@
-export const itemsData = [
+const itemsData = [
   {
     "id": 1,
     "name": "ジンジャーエール",
@@ -6,7 +6,7 @@ export const itemsData = [
     "price": 200,
     "image": "/img/menu/Ginger_Ale.jpg",
     "allergen": [],
-    "area" : "Drink"
+    "area" : "Ginger"
   },{
     "id": 2,
     "name": "アイスコーヒー",
@@ -23,7 +23,7 @@ export const itemsData = [
     "price": 200,
     "image": "/img/menu/coffee.jpg",
     "allergen": [],
-    "area" : "Drink"
+    "area" : "Coffee"
   },
   {
     "id": 4,
@@ -38,7 +38,7 @@ export const itemsData = [
     "id": 5,
     "name": "リンゴジュース",
     "type": "Drinks",
-    "price": 100,
+    "price": 200,
     "image": "/img/menu/Orange_Juice.png",
     "allergen": [27],
     "area" : "Drink"
@@ -47,14 +47,14 @@ export const itemsData = [
     "id": 6,
     "name": "ワッフル",
     "type": "Sweets",
-    "price": 400,
+    "price": 300,
     "image": "/img/menu/waffle.jpg",
     "allergen": [1, 2],
     "area" : "Waffle"
   },
   {
     "id": 7,
-    "name": "フルーツミックスパフェ",
+    "name": "ベリーパフェ",
     "type": "Sweets",
     "price": 400,
     "image": "/img/menu/Parfait.jpg",
@@ -72,12 +72,12 @@ export const itemsData = [
   },
   {
     "id": 9,
-    "name": "カップケーキ",
+    "name": "タルト",
     "type": "Sweets",
     "price": 400,
     "image": "/img/menu/Cupcake.png",
     "allergen": [1, 2],
-    "area" : "Waffle"
+    "area" : "Tart"
   },
   {
     "id": 11,
@@ -92,9 +92,11 @@ export const itemsData = [
     "id": 12,
     "name": "コンソメスープ",
     "type": "Foods",
-    "price": 200,
+    "price": 300,
     "image": "/img/menu/consomme.jpg",
     "allergen": [1, 2],
     "area" : "Consomme_Soup"
   }
 ]
+
+export default itemsData;

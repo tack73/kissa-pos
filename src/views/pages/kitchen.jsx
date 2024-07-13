@@ -27,7 +27,7 @@ export default function Kitchen({ area, setArea }) {
     });
   }
   function getCockItemName(area) {
-    axios.get("/api/status/" + area).then(function (response) {
+    axios.get(endpoint + area).then(function (response) {
       console.log(response.data);
       setItems([...response.data]);
     });
@@ -65,6 +65,9 @@ export default function Kitchen({ area, setArea }) {
 
   const options = [
     { value: "Drink", label: "Drink" },
+    { value : "Ginger" , label: "Ginger" },
+    { value : "Coffee", label: "Coffee" },
+    { value : "Tart", label: "Tart" },
     { value: "Waffle", label: "Waffle" },
     { value: "Parfait", label: "Parfait" },
     { value: "Qroque_Monsieur", label: "Qroque Monsieur" },
