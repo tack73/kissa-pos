@@ -38,7 +38,7 @@ const itemsData = [
     "id": 5,
     "name": "リンゴジュース",
     "type": "Drinks",
-    "price": 200,
+    "price": 100,
     "image": "/img/menu/Orange_Juice.png",
     "allergen": [27],
     "area" : "Drink"
@@ -83,7 +83,7 @@ const itemsData = [
     "id": 11,
     "name": "クロックムッシュ",
     "type": "Foods",
-    "price": 300,
+    "price": 200,
     "image": "/img/menu/QM.jpg",
     "allergen": [4,6,7,20,21,23],
     "area" : "Qroque_Monsieur"
@@ -92,7 +92,7 @@ const itemsData = [
     "id": 12,
     "name": "コンソメスープ",
     "type": "Foods",
-    "price": 300,
+    "price": 200,
     "image": "/img/menu/consomme.jpg",
     "allergen": [1, 2],
     "area" : "Consomme_Soup"
