@@ -6,7 +6,7 @@
     "price": 200,
     "image": "/img/menu/Ginger_Ale.jpg",
     "allergen": [],
-    "area" : "Drink"
+    "area" : "Ginger"
   },{
     "id": 2,
     "name": "アイスコーヒー",
@@ -23,7 +23,7 @@
     "price": 200,
     "image": "/img/menu/coffee.jpg",
     "allergen": [],
-    "area" : "Drink"
+    "area" : "Coffee"
   },
   {
     "id": 4,
@@ -77,7 +77,7 @@
     "price": 400,
     "image": "/img/menu/Cupcake.png",
     "allergen": [1, 2],
-    "area" : "Waffle"
+    "area" : "Tart"
   },
   {
     "id": 11,
