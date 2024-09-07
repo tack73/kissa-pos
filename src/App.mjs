@@ -23,6 +23,7 @@ function App() {
   const [area, setArea] = useState("Drink");
   const [tableNum, setTableNum] = useState("未設定");
   const [submitId, setSubmitId] = useState(null);
+  const [isEatIn, setIsEatIn] = useState(true);
   function Pos() {
     return (
       <PosView
@@ -39,6 +40,7 @@ function App() {
         tableNum={tableNum}
         setTableNum={setTableNum}
         setSubmitId={setSubmitId}
+        isEatIn={isEatIn}
       />
     );
   }
@@ -59,7 +61,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home setIsEatIn={setIsEatIn}/>} />
         <Route path="/pos" element={<Pos />} />
         <Route path="/kitchen" element={<Kitchen />} />
         <Route path="/complete" element={<Complete init={init} submitId={submitId} order={order} />} />

@@ -24,7 +24,8 @@ const orderSchema = new Schema(
     total : {type : Number, required : true},
     submitId : {type : String, required : true},
     isServed : {type : Boolean, required : true},
-    tableNum : { type : Number, required : true}
+    tableNum : { type : Number, required : true},
+    isEatIn : { type : Boolean, required : true}
   },
   { timestamps: true }
 );

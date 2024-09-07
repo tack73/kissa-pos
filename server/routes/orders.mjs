@@ -16,6 +16,7 @@ router.post(
   body("payment").isIn(["cash", "square"]),
   body("isServed").isBoolean(),
   body("tableNum").notEmpty().isNumeric(),
+  body("isEatIn").isBoolean(),
   (req, res) => {
     console.log(req.body);
     const errors = validationResult(req);
@@ -24,7 +25,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { persons, orderItems, total, submitId, payment, isServed, tableNum } = req.body;
+    const { persons, orderItems, total, submitId, payment, isServed, tableNum ,isEatIn} = req.body;
     const order = new Order({
       persons,
       orderItems,
@@ -32,7 +33,8 @@ router.post(
       submitId,
       payment,
       isServed,
-      tableNum
+      tableNum,
+      isEatIn
     });
     order.save().then((order) => {
       res.status(201).json(order);

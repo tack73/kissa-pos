@@ -17,6 +17,7 @@ export default function PosView({
   tableNum,
   setTableNum,
   setSubmitId,
+  isEatIn
 }) {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ export default function PosView({
             tableNum={tableNum}
             setTableNum={setTableNum}
             setSubmitId={setSubmitId}
+            isEatIn={isEatIn}
           />
         </div>
       </div>
@@ -49,6 +51,7 @@ export default function PosView({
             isProcessing={isProcessing}
             persons={persons}
             setPersons={setPersons}
+            isEatIn={isEatIn}
           />
         </div>
       </div>
@@ -67,9 +70,10 @@ function LeftPannel({
   tableNum,
   setTableNum,
   setSubmitId,
+  isEatIn,
 }) {
   if (!isProcessing) {
-    return <Menu setTarget={setTarget} />;
+    return <Menu isEatIn={isEatIn} setTarget={setTarget} />;
   }
   return (
     <Accounting
@@ -81,6 +85,7 @@ function LeftPannel({
       tableNum={tableNum}
       setTableNum={setTableNum}
       setSubmitId={setSubmitId}
+      isEatIn={isEatIn}
     />
   );
 }

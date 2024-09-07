@@ -15,6 +15,7 @@ export default function Accounting({
   order,
   persons,
   setSubmitId,
+  isEatIn,
 }) {
   const [tableNum, setTableNum] = useState(tableNumHolder);
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ export default function Accounting({
       submitId: getUniqueStr(),
       tableNum: tableNum,
       isServed: false,
+      isEatIn: isEatIn,
     };
     setSubmitId(submitOrder.submitId);
     setIsPrinting(true);
@@ -84,7 +86,7 @@ export default function Accounting({
       return (
         <div className={styles.payment_nav}>
           <h2>電子決済でお支払い</h2>
-          <button>Square を開く</button>
+          <button onClick={handleSubmit}>支払い完了</button>
         </div>
       );
     }
