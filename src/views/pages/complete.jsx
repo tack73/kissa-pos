@@ -94,7 +94,7 @@ async function createReceipt(order) {
 
 export default function Complete({ init, submitId, order }) {
   function printReceipt() {
-    axios.post(
+    axios.get(
       `https://informed-chief-stork.ngrok-free.app/api/orders/reciept/${submitId}`,
       { headers: { "ngrok-skip-browser-warning": "something" } },
     );
