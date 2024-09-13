@@ -3,21 +3,23 @@ import styles from "./complete.module.css";
 import axios from "axios";
 import { PDFDocument, StandardFonts } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
-import itemsData  from "../../utilities/items.mjs";
+import itemsData from "../../utilities/items.mjs";
 
 async function createReceipt(order) {
   const pdfDoc = await PDFDocument.create();
   pdfDoc.registerFontkit(fontkit);
-  const fontBytes = await fetch("/GenShinGothic-Regular.ttf").then((res) => res.arrayBuffer()); //本番環境用
+  const fontBytes = await fetch("/GenShinGothic-Regular.ttf").then((res) =>
+    res.arrayBuffer()
+  ); //本番環境用
   const genshinGothic = await pdfDoc.embedFont(fontBytes, { subset: true });
   const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const length = order.orderItems.length;
   const page = pdfDoc.addPage([204.1, 141 + 29 * length]);
   var { width, height } = page.getSize();
   height = height - 10;
-  const pngImageBytes = await fetch(
-    `/img/reciept-header.png`
-  ).then((res) => res.arrayBuffer()); //本番環境用
+  const pngImageBytes = await fetch(`/img/reciept-header.png`).then((res) =>
+    res.arrayBuffer()
+  ); //本番環境用
   // const pngImageBytes = fs.readFileSync('/server/assets/reciept-header-5mogi.png');//5模擬用
   const pngImage = await pdfDoc.embedPng(pngImageBytes);
   page.drawImage(pngImage, {
@@ -90,17 +92,21 @@ async function createReceipt(order) {
   return dataUri;
 }
 
-export default function Complete({ init, submitId ,order }) {
+export default function Complete({ init, submitId, order }) {
   function printReceipt() {
-    createReceipt(order).then((dataUri) => {
-      const printData = encodeURIComponent(dataUri);
-      const successURL = window.location.href;
-      const urlData = `tmprintassistant://tmprintassistant.epson.com/print?ver=1&data-type=pdf&data=${printData}&success=${encodeURIComponent(
-        successURL
-      )}`;
-      window.location.href = urlData;
-      window.close();
-    });
+    axios.post(
+      `https://informed-chief-stork.ngrok-free.app/api/orders/reciept/${submitId}`,
+      { headers: { "ngrok-skip-browser-warning": "something" } },
+    );
+    // createReceipt(order).then((dataUri) => {
+    //   const printData = encodeURIComponent(dataUri);
+    //   const successURL = window.location.href;
+    //   const urlData = `tmprintassistant://tmprintassistant.epson.com/print?ver=1&data-type=pdf&data=${printData}&success=${encodeURIComponent(
+    //     successURL
+    //   )}`;
+    //   window.location.href = urlData;
+    //   window.close();
+    // });
     // axios
     //   .get(`/api/orders/receipt/${submitId}`, { responseType: "pdf" })
     //   .then((response) => {
