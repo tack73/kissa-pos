@@ -3,7 +3,7 @@ import itemsData from "../../../utilities/items.json";
 import { MdPayment, MdPayments } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import NumPad from "../blocks/numPad";
 var tableNumHolder = 0;
@@ -74,11 +74,17 @@ export default function Accounting({
   }
 
   function PaymentView() {
+    const submitProcessing = useRef(false);
     if (payment === "cash") {
       return (
         <div className={styles.payment_nav}>
           <h2>現金でお支払い</h2>
-          <button onClick={handleSubmit}>支払い完了</button>
+          <button onClick={()=>{
+            if(submitProcessing.current) return;
+            submitProcessing.current = true;
+            handleSubmit();
+            submitProcessing.current = false;
+          }}>支払い完了</button>
         </div>
       );
     }
@@ -86,7 +92,12 @@ export default function Accounting({
       return (
         <div className={styles.payment_nav}>
           <h2>電子決済でお支払い</h2>
-          <button onClick={handleSubmit}>支払い完了</button>
+          <button onClick={()=>{
+            if(submitProcessing.current) return;
+            submitProcessing.current = true;
+            handleSubmit();
+            submitProcessing.current = false;
+          }}>支払い完了</button>
         </div>
       );
     }
