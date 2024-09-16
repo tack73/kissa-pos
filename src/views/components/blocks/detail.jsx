@@ -52,6 +52,8 @@ export default function Detail({ id, order, setOrder, setTarget}) {
             onClick={() => {
               orderItem.orderId = getUniqueStr();
               orderItem.isCompleted = true;
+              id === 7 || id === 10 ? orderItem.isCompleted = false :
+              orderItem.isCompleted = true;
               setOrder([...orders, orderItem]);
               setQuantity(1);
               setTarget(null);

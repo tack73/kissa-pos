@@ -9,6 +9,7 @@ export default function Home({ setIsEatIn }) {
         <Link to="/pos" onClick={()=>{setIsEatIn(false)}}>POS-TAKE OUT</Link>
         <Link to="/kitchen">Kitchen</Link>
         <Link to="/waiterstation">Waiter Station</Link>
+        <Link to="/kitchenForPafait">KitchenForPafait</Link>
       </div>
     );
   }

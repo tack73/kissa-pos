@@ -106,11 +106,11 @@ export default function ForWaiter() {
         )} */}
       </div>
 
-      <div>
+      {/* <div>
         {orders.map((order, i) => (
           <OrderForWaiter order={order} />
         ))}
-      </div>
+      </div> */}
       <div className={styles.statusView}>
           {status.map((s) => (
           <div key={s.id} className={styles.status}>
