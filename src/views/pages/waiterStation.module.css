@@ -16,14 +16,14 @@ h1 {
     column-gap: 10px;
     position: fixed;
     z-index: 99;
-    top: 5vh;
+    top: 10vh;
     right: 5vw;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     width: 90vw;
-    height: 90vh;
+    height: 85vh;
 }
 
 .status{
@@ -38,5 +38,4 @@ h1 {
 }
 .status p{
     font-weight: bold;
-    font-size: 2em;
 }

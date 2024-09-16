@@ -49,7 +49,7 @@ function App() {
     return <KitchenDrink area={area} setArea={setArea} />;
   }
   function KitchenForPafait() {
-    return <KitchenForPafait />;
+    return <KitchenForPafait area={area} setArea={setArea} />;
   }
   function init() {
     setOrder([]);
