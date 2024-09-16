@@ -48,7 +48,7 @@ function App() {
   function Kitchen() {
     return <KitchenDrink area={area} setArea={setArea} />;
   }
-  function KitchenForPafait() {
+  function KitchenPafait() {
     return <KitchenForPafait area={area} setArea={setArea} />;
   }
   function init() {
@@ -71,7 +71,7 @@ function App() {
         <Route path="/complete" element={<Complete init={init} submitId={submitId} order={order} />} />
         <Route path="/waiterstation" element={<WaiterStation />} />
         <Route path="/inventrycheck" element={<InventryCheck />} />
-        <Route path="/kitchenForPafait" element={<KitchenForPafait />} />
+        <Route path="/kitchenForPafait" element={<KitchenPafait />} />
       </Routes>
     </Router>
   );

@@ -14,6 +14,7 @@ h1 {
 .statusView{
     column-count: 4;
     column-gap: 10px;
+    row-gap: 10px;
     position: fixed;
     z-index: 99;
     top: 5vh;
@@ -38,5 +39,5 @@ h1 {
 }
 .status p{
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.6em;
 }
