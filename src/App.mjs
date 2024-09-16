@@ -48,6 +48,9 @@ function App() {
   function Kitchen() {
     return <KitchenDrink area={area} setArea={setArea} />;
   }
+  function KitchenForPafait() {
+    return <KitchenForPafait />;
+  }
   function init() {
     setOrder([]);
     setTarget(null);

@@ -16,6 +16,7 @@ export default function KitchenForPafait({ area, setArea }) {
   const [order, setOrder] = useState([]);
   const [areaName, setAreaName] = useState("Parfait");
   const endpoint = "api/orders/orderitems/";
+  setArea("Parfait");
 
   function getOrderItems(area) {
     axios.get(endpoint + area).then(function (response) {

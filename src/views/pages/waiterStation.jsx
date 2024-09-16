@@ -26,9 +26,9 @@ export default function ForWaiter() {
   }
 
   function PrintStatus({ status }) {
-    if(status === 0) return <FaRegCircle size={30} />
-    else if(status === 1) return <TbTriangle size={30} />
-    else if(status === 2) return <RxCross2 size={30} />
+    if(status === 0) return <FaRegCircle size={60} />
+    else if(status === 1) return <TbTriangle size={60} />
+    else if(status === 2) return <RxCross2 size={60} />
 
   }
 
