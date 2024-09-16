@@ -34,6 +34,7 @@ export default function KitchenForPafait({ area, setArea }) {
 
   }
   useEffect(() => {
+    console.log("starting");
     confAreaName();
     const login = async () => {
       // Authenticate anonymously

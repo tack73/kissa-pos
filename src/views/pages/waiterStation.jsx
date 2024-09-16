@@ -26,9 +26,9 @@ export default function ForWaiter() {
   }
 
   function PrintStatus({ status }) {
-    if(status === 0) return <FaRegCircle size={90} />
-    else if(status === 1) return <TbTriangle size={90} />
-    else if(status === 2) return <RxCross2 size={90} />
+    if(status === 0) return <FaRegCircle size={80} />
+    else if(status === 1) return <TbTriangle size={80} />
+    else if(status === 2) return <RxCross2 size={80} />
 
   }
 
@@ -98,7 +98,6 @@ export default function ForWaiter() {
   return (
     <div>
       <div className={styles.title}>
-        <h1>Waiter Station</h1>
         {/* {isPrintable ? (
           <p>プリンターを使用できます</p>
         ) : (

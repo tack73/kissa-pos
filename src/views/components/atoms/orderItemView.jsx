@@ -3,7 +3,7 @@ import styles from "./orderItemView.module.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function OrderItemView({ order  }) {
+export default function OrderItemView({ order}) {
   // console.log(itemsData.filter((item) => item.id === order.itemId)[0].name);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const name = itemsData.filter((item) => item.id === order.itemId)[0].name;

@@ -12,18 +12,18 @@ h1 {
 }
 
 .statusView{
-    column-count: 3;
+    column-count: 4;
     column-gap: 10px;
     position: fixed;
     z-index: 99;
-    top: 10vh;
+    top: 5vh;
     right: 5vw;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     width: 90vw;
-    height: 85vh;
+    height: 90vh;
 }
 
 .status{
@@ -38,5 +38,5 @@ h1 {
 }
 .status p{
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
