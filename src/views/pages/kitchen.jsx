@@ -194,7 +194,7 @@ function Submit9090({ area, setIsPopupVisible }) {
       today.getMonth() + 1
     }/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
     fetch(endpoint9090, {
-      method: "GET",
+      method: "POST",
       "Content-Type": "application/json",
       body: JSON.stringify({ area: area, submitData: submitData }),
     }).then(() => {
