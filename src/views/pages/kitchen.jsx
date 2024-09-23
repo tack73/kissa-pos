@@ -151,7 +151,7 @@ function Submit9090({area,setIsPopupVisible}){
     setIsPopupVisible(true);
     const today = new Date();
     const submitData = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-    axios.get(endpoint9090,{"name" : area, "timeStamp" : submitData}).then(()=>{setIsPopupVisible(false)});
+    axios.get(endpoint9090,{"name" : area, "timeStamp" : submitData, crossDomain: true}).then(()=>{setIsPopupVisible(false)});
   }
   return(
     <div>
