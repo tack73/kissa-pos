@@ -46,7 +46,7 @@ export default function Kitchen({ area, setArea }) {
     getCockItemName(area);
     // setItems([...getCockItemName(area)]);
     // console.log(items);
-    
+
     const login = async () => {
       const user = await app.logIn(Realm.Credentials.anonymous());
       setUser(user); // Connect to the database
@@ -65,9 +65,9 @@ export default function Kitchen({ area, setArea }) {
 
   const options = [
     { value: "Drink", label: "Drink" },
-    { value : "Ginger" , label: "Ginger" },
-    { value : "Coffee", label: "Coffee" },
-    { value : "Tart", label: "Tart" },
+    { value: "Ginger", label: "Ginger" },
+    { value: "Coffee", label: "Coffee" },
+    { value: "Tart", label: "Tart" },
     { value: "Waffle", label: "Waffle" },
     { value: "Parfait", label: "Parfait" },
     { value: "Qroque_Monsieur", label: "Qroque Monsieur" },
@@ -78,30 +78,59 @@ export default function Kitchen({ area, setArea }) {
     setItems(getCockItemName(area));
     confAreaName();
   }
-  function AvailabilityView({itemName, id,status}) {
-    let initialActive = [false, false, false]
+  function AvailabilityView({ itemName, id, status }) {
+    let initialActive = [false, false, false];
     initialActive[status] = true;
     const [active, setActive] = useState(initialActive);
-    function handleActive(index){
+    function handleActive(index) {
       setIsPopupVisible(true);
       // let newActive = [false,false,false];
       // newActive[index] = !newActive[index];
       // setActive(newActive);
-      axios.patch("/api/status/",{id:id,status:index}).then(()=>{setIsPopupVisible(false)});
+      axios.patch("/api/status/", { id: id, status: index }).then(() => {
+        setIsPopupVisible(false);
+      });
     }
     return (
       <div className={styles.itemView}>
         <h2>{itemName}</h2>
         <div className={styles.buttons}>
-          <button onClick={()=>{handleActive(0)}} className={active[0] ? styles.registButton_click : styles.registButton_notClick} >
+          <button
+            onClick={() => {
+              handleActive(0);
+            }}
+            className={
+              active[0]
+                ? styles.registButton_click
+                : styles.registButton_notClick
+            }
+          >
             <FaRegCircle size={50} />
             <p>提供可能</p>
           </button>
-          <button onClick={()=>{handleActive(1)}} className={active[1] ? styles.registButton_click : styles.registButton_notClick}>
+          <button
+            onClick={() => {
+              handleActive(1);
+            }}
+            className={
+              active[1]
+                ? styles.registButton_click
+                : styles.registButton_notClick
+            }
+          >
             <TbTriangle size={50} />
             <p>あと数個でローテ終了</p>
           </button>
-          <button onClick={()=>{handleActive(2)}} className={active[2] ? styles.registButton_click : styles.registButton_notClick}>
+          <button
+            onClick={() => {
+              handleActive(2);
+            }}
+            className={
+              active[2]
+                ? styles.registButton_click
+                : styles.registButton_notClick
+            }
+          >
             <RxCross2 size={50} />
             <p>ローテ インターバル</p>
           </button>
@@ -110,12 +139,12 @@ export default function Kitchen({ area, setArea }) {
     );
   }
 
-  function Popup(){
-    return(
+  function Popup() {
+    return (
       <div className={styles.popup}>
         <p>更新中</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -133,31 +162,50 @@ export default function Kitchen({ area, setArea }) {
       <div>
         <h1>提供状況</h1>
         {items.map((item, index) => (
-          <AvailabilityView itemName={item.name} id={item.id} status={item.status} />
+          <AvailabilityView
+            itemName={item.name}
+            id={item.id}
+            status={item.status}
+          />
         ))}
       </div>
-      {area === "Consomme_Soup" && <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible}/>}
-      {area === "Waffle" && <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible}/>}
-      {area === "Tart" && <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible}/>}
+      {area === "Consomme_Soup" && (
+        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
+      )}
+      {area === "Waffle" && (
+        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
+      )}
+      {area === "Tart" && (
+        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
+      )}
 
       {isPopupVisible && <Popup />}
     </>
   );
 }
 
-function Submit9090({area,setIsPopupVisible}){
-  const endpoint9090 = "https://script.google.com/macros/s/AKfycbyYPQoaOpuwDda2xcj1sZ2V6nmz4zRP0zchAqrPHcbBJtlEtf3yKLFb-ZbFXHe8E_S9zw/exec";
-  function submit (){
+function Submit9090({ area, setIsPopupVisible }) {
+  const endpoint9090 =
+    "https://script.google.com/macros/s/AKfycbyYPQoaOpuwDda2xcj1sZ2V6nmz4zRP0zchAqrPHcbBJtlEtf3yKLFb-ZbFXHe8E_S9zw/exec";
+  function submit() {
     setIsPopupVisible(true);
     const today = new Date();
-    const submitData = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-    axios.get(endpoint9090,{"name" : area, "timeStamp" : submitData, crossDomain: true}).then(()=>{setIsPopupVisible(false)});
+    const submitData = `${today.getFullYear()}/${
+      today.getMonth() + 1
+    }/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    fetch(endpoint9090, {
+      method: "GET",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ area: area, submitData: submitData }),
+    }).then(() => {
+      setIsPopupVisible(false);
+    });
   }
-  return(
+  return (
     <div>
       <button onClick={submit}>9090送信</button>
     </div>
-  )
+  );
 }
 // export default function Kitchen({ area, setArea }) {
 //   const [user, setUser] = useState(null);
