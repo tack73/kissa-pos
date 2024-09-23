@@ -60,3 +60,21 @@ Content-Type: application/json
     "id":1,
     "status":1
 }
+
+
+###
+POST https://script.google.com/macros/s/AKfycbyp3pSDb4yRmjPfkhRbG9W4S1ZwWsSjQZD5IGKK0jBft_4s8dhfQLuFwNZm453mBfcBgg/exec
+Content-Type: application/json
+
+{
+  "name": "tart",
+  "timeStamp" : "2021-05-17T12:00:00"
+}
+
+###
+# GET https://script.google.com/macros/s/AKfycbzlgYf_yMU8CMUJYdi3DkpI9xx5gZk08QjB4wMfaOQxtalx-iracng1eXh9x52NNs-h_w/exec
+# Content-Type: application/json
+
+# {
+#   "name": "tart"
+# }

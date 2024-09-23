@@ -136,11 +136,29 @@ export default function Kitchen({ area, setArea }) {
           <AvailabilityView itemName={item.name} id={item.id} status={item.status} />
         ))}
       </div>
+      {area === "Consomme_Soup" && <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible}/>}
+      {area === "Waffle" && <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible}/>}
+      {area === "Tart" && <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible}/>}
+
       {isPopupVisible && <Popup />}
     </>
   );
 }
 
+function Submit9090({area,setIsPopupVisible}){
+  const endpoint9090 = "https://script.google.com/macros/s/AKfycbyp3pSDb4yRmjPfkhRbG9W4S1ZwWsSjQZD5IGKK0jBft_4s8dhfQLuFwNZm453mBfcBgg/exec";
+  function submit (){
+    setIsPopupVisible(true);
+    const today = new Date();
+    const submitData = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    axios.post(endpoint9090,{"name" : area, "timeStamp" : submitData}).then(()=>{setIsPopupVisible(false)});
+  }
+  return(
+    <div>
+      <button onClick={submit}>9090送信</button>
+    </div>
+  )
+}
 // export default function Kitchen({ area, setArea }) {
 //   const [user, setUser] = useState(null);
 //   const [events, setEvents] = useState([]);
