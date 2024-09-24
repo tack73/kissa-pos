@@ -192,13 +192,13 @@ function Submit9090({ area, setIsPopupVisible }) {
     axios.post(endpoint9090, { area: area, time: today }).then(() => {
       setIsPopupVisible(false);
   });
-
+  }
   return (
     <div>
       <button onClick={submit9090}>9090送信</button>
     </div>
   );
-}}
+}
 // export default function Kitchen({ area, setArea }) {
 //   const [user, setUser] = useState(null);
 //   const [events, setEvents] = useState([]);
