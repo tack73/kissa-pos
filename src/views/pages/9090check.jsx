@@ -18,8 +18,11 @@ export default function Check() {
     function onChange(e){
         setDate(e.value);
     }
-    function Status9090view({area,date}){
-        const data = axios.get(endpoint,{params:{name:area,time:date}});
+    async function Status9090view({area,date}){
+        let data = [];
+        await axios.get(endpoint,{params:{name:area,time:date}}).then((res)=>{
+            data = res.data;
+        });
         return (
             <div>
                 <h1>{area}</h1>
@@ -31,16 +34,12 @@ export default function Check() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.then((res)=>{
-                            res.data.forEach((element)=>{
-                                <tr>
-                                    {/* <td>{element.index}</td>
-                                    <td>{element.time}</td> */}
-                                    <td>aaaaaaaaaaaaaa</td>
-                                    <td>bbbbbbbbbbbbbb</td>
-                                </tr>
-                            });
-                        })}
+                        {data.map((item) => (
+                            <tr>
+                                <td>{item.index}</td>
+                                <td>{item.time}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
