@@ -1,30 +1,34 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./9090check.module.css";
 import axios from "axios";
 import Select from "react-select";
 
 export default function Check() {
   const [date, setDate] = useState("");
+  const [data, setData] = useState([]);
   const endpoint = "api/status9090/";
-  const datas = axios.get(endpoint + "date");
   let options = [];
-  datas.then((res) => {
-    res.data.forEach((element) => {
-      options.push({ value: element, label: element });
+  useEffect(() => {
+    const datas = axios.get(endpoint + "date");
+    datas.then((res) => {
+      res.data.forEach((element) => {
+        options.push({ value: element, label: element });
+      });
     });
   });
+  
+  
 
   function onChange(e) {
     setDate(e.value);
   }
-  function Status9090view({ area, date }) {
-    // let data = [];
-    // await axios
-    //   .get(endpoint, { params: { name: area, time: date } })
-    //   .then((res) => {
-    //     data = res.data;
-    //   });
+  function Status9090view({ area, date, data, setData }) {
+    axios
+      .get(endpoint, { params: { name: area, time: date } })
+      .then((res) => {
+        setData(res.data);
+      });
     return (
       <div>
         <h1>{area}</h1>
@@ -36,16 +40,12 @@ export default function Check() {
             </tr>
           </thead>
           <tbody>
-            {/* {data.map((item) => (
+            {data.map((item) => (
               <tr>
                 <td>{item.index}</td>
                 <td>{item.time}</td>
               </tr>
-            ))} */}
-            <tr>
-                <td>1</td>
-                <td>2021/9/1</td>
-            </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -61,10 +61,10 @@ export default function Check() {
         className={styles.selectView}
         onChange={onChange}
       />
-      <Status9090view area="Tart" date={date} />
-      <Status9090view area="Waffle" date={date} />
-      <Status9090view area="Ginger" date={date} />
-      <Status9090view area="Consomme_Soup" date={date} />
+      <Status9090view area="Tart" date={date} data={data} setData={setData} />
+      <Status9090view area="Waffle" date={date} data={data} setData={setData} />
+      <Status9090view area="Ginger" date={date} data={data} setData={setData} />
+      <Status9090view area="Consomme_Soup" date={date} data={data} setData={setData} />
       <Link to="/">Back to Home</Link>
     </div>
   );
