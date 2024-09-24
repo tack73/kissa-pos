@@ -18,7 +18,7 @@ export default function Check() {
   function onChange(e) {
     setDate(e.value);
   }
-  async function Status9090view({ area, date }) {
+  function Status9090view({ area, date }) {
     // let data = [];
     // await axios
     //   .get(endpoint, { params: { name: area, time: date } })
