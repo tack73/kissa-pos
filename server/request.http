@@ -63,11 +63,10 @@ Content-Type: application/json
 
 
 ###
-POST https://script.google.com/macros/s/AKfycbyp3pSDb4yRmjPfkhRbG9W4S1ZwWsSjQZD5IGKK0jBft_4s8dhfQLuFwNZm453mBfcBgg/exec
-Content-Type: application/json
+POST https://script.google.com/macros/s/AKfycbxItAYZ6vyT9Nn_YcTBMvyeQA2qWRL0YQNF8NvCuq2x4NKJh5G2-7joKmPk5vJKWxNMGQ/exec
 
 {
-  "name": "tart",
+  "name": "Tart",
   "timeStamp" : "2021-05-17T12:00:00"
 }
 

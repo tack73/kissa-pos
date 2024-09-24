@@ -3,7 +3,7 @@ import Status from "../models/status.mjs";
 const router = express.Router();
 
 router.get("/:area", (req, res) => {
-    Status.find({ area: req.params.area }).then((status) => {
+    Status.find({ area: req.params.area }).sort([["createdAt", -1]]).then((status) => {
         let results = [];
         status.forEach((element) => {
             results.push({

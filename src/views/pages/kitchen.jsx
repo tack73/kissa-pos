@@ -185,28 +185,20 @@ export default function Kitchen({ area, setArea }) {
 }
 
 function Submit9090({ area, setIsPopupVisible }) {
-  const endpoint9090 =
-    "https://script.google.com/macros/s/AKfycbyYPQoaOpuwDda2xcj1sZ2V6nmz4zRP0zchAqrPHcbBJtlEtf3yKLFb-ZbFXHe8E_S9zw/exec";
-  function submit() {
+  const endpoint9090 ="/api/status9090";
+  function submit9090() {
     setIsPopupVisible(true);
     const today = new Date();
-    const submitData = `${today.getFullYear()}/${
-      today.getMonth() + 1
-    }/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-    fetch(endpoint9090, {
-      method: "POST",
-      "Content-Type": "application/json",
-      body: JSON.stringify({ area: area, submitData: submitData }),
-    }).then(() => {
+    axios.post(endpoint9090, { area: area, time: today }).then(() => {
       setIsPopupVisible(false);
-    });
-  }
+  });
+
   return (
     <div>
-      <button onClick={submit}>9090送信</button>
+      <button onClick={submit9090}>9090送信</button>
     </div>
   );
-}
+}}
 // export default function Kitchen({ area, setArea }) {
 //   const [user, setUser] = useState(null);
 //   const [events, setEvents] = useState([]);
@@ -273,4 +265,3 @@ function Submit9090({ area, setIsPopupVisible }) {
 //       ))}
 //     </>
 //   );
-// }
