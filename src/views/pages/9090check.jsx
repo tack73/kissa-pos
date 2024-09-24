@@ -18,42 +18,42 @@ export default function Check() {
     function onChange(e){
         setDate(e.value);
     }
-    function Status9090view({area,date}){
-        const data = axios.get(endpoint,{params:{name:area,time:date}});
-        return (
-            <div>
-                <h1>{area}</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ローテ回数</th>
-                            <th>時間</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.then((res)=>{
-                            res.data.forEach((element)=>{
-                                <tr>
-                                    <td>{element.index}</td>
-                                    <td>{element.time}</td>
-                                </tr>
-                            });
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        )
-    }
+    // function Status9090view({area,date}){
+    //     const data = axios.get(endpoint,{params:{name:area,time:date}});
+    //     return (
+    //         <div>
+    //             <h1>{area}</h1>
+    //             <table>
+    //                 <thead>
+    //                     <tr>
+    //                         <th>ローテ回数</th>
+    //                         <th>時間</th>
+    //                     </tr>
+    //                 </thead>
+    //                 <tbody>
+    //                     {data.then((res)=>{
+    //                         res.data.forEach((element)=>{
+    //                             <tr>
+    //                                 <td>{element.index}</td>
+    //                                 <td>{element.time}</td>
+    //                             </tr>
+    //                         });
+    //                     })}
+    //                 </tbody>
+    //             </table>
+    //         </div>
+    //     )
+    // }
 
 
     return(
         <div>
             <h1>9090 Check</h1>
             <Select options={options} isSearchable={true} className={styles.selectView} onChange={onChange}/>
-            <Status9090view area="Tart" date={date}/>
+            {/* <Status9090view area="Tart" date={date}/>
             <Status9090view area="Waffle" date={date}/>
             <Status9090view area="Ginger" date={date}/>
-            <Status9090view area="Consomme_Soup" date={date}/>
+            <Status9090view area="Consomme_Soup" date={date}/> */}
             <Link to="/">Back to Home</Link>
         </div>
     )
