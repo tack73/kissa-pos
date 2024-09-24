@@ -34,8 +34,10 @@ export default function Check() {
                         {data.then((res)=>{
                             res.data.forEach((element)=>{
                                 <tr>
-                                    <td>{element.index}</td>
-                                    <td>{element.time}</td>
+                                    {/* <td>{element.index}</td>
+                                    <td>{element.time}</td> */}
+                                    <td>aaaaaaaaaaaaaa</td>
+                                    <td>bbbbbbbbbbbbbb</td>
                                 </tr>
                             });
                         })}
