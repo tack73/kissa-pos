@@ -178,6 +178,9 @@ export default function Kitchen({ area, setArea }) {
       {area === "Tart" && (
         <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
       )}
+      {area === "Ginger" && (
+        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
+      )}
 
       {isPopupVisible && <Popup />}
     </>
@@ -189,7 +192,7 @@ function Submit9090({ area, setIsPopupVisible }) {
   function submit9090() {
     setIsPopupVisible(true);
     const today = new Date();
-    axios.post(endpoint9090, { area: area, time: today }).then(() => {
+    axios.post(endpoint9090, { name: area, time: today }).then(() => {
       setIsPopupVisible(false);
   });
   }
