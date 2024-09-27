@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./9090check.module.css";
 import axios from "axios";
 import * as Realm from "realm-web";
 const app = new Realm.App({ id: "application-0-vmbzlrz" });
