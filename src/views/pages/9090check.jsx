@@ -12,7 +12,19 @@ export default function Check() {
   const [events, setEvents] = useState([]);
   const [date, setDate] = useState("2024/9/24");
   const [options, setOptions] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{
+    area: "Tart",
+    data: []
+  },{
+    area: "Waffle",
+    data: []
+  },{
+    area: "Ginger",
+    data: []
+  },{
+    area: "Consomme_Soup",
+    data: []
+  }]);
   const endpoint = "api/status9090/";
   function getDates() {
     axios.get(endpoint + "date").then(function (response) {
