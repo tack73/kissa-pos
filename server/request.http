@@ -71,7 +71,7 @@ POST https://script.google.com/macros/s/AKfycbxItAYZ6vyT9Nn_YcTBMvyeQA2qWRL0YQNF
 }
 
 ###
-GET http://localhost:8080/api/status9090/Ginger/2024-9-24
+GET http://localhost:8080/api/status9090/Tart/2024-9-24
 
 
 ###

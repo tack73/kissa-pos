@@ -90,23 +90,23 @@ export default function Check() {
             </tr>
           </thead>
           <tbody>
-            {status.map((item) => (
+            {status.forEach((element) => {
               <tr>
-                <td>{item.index}</td>
+                <td>{element.index}</td>
                 <td>
                   {() => {
-                    item.time = new Date(item.time);
+                    element.time = new Date(element.time);
                     return (
-                      item.time.getHours() +
+                      element.time.getHours() +
                       ":" +
-                      item.time.getMinutes() +
+                      element.time.getMinutes() +
                       ":" +
-                      item.time.getSeconds()
+                      element.time.getSeconds()
                     );
                   }}
                 </td>
               </tr>
-            ))}
+            })}
           </tbody>
         </table>
       </div>
