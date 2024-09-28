@@ -15,7 +15,7 @@ const app = new Realm.App({ id: "application-0-vmbzlrz" });
 export default function Check() {
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
-  const [date, setDate] = useState("日付を選択");
+  const [date, setDate] = useState("2024/9/24");
   const [options, setOptions] = useState([]);
   const endpoint = "api/status9090/";
   function getDates() {
@@ -48,6 +48,7 @@ export default function Check() {
 
   function onChange(e) {
     setDate(e.value);
+    console.log(date);
   }
   return (
     <div>
