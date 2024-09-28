@@ -48,7 +48,10 @@ export default function Check9090({ area, date }) {
           {data.map((item) => (
             <tr>
               <td>{item.index}</td>
-              <td>{item.time}</td>
+              <td>{()=>{
+                item.time = new Date(item.time);
+                return item.time.getHours() + ":" + item.time.getMinutes() + ":" + item.time.getSeconds();
+              }}</td>
             </tr>
           ))}
         </tbody>
