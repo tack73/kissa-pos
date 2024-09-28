@@ -75,7 +75,7 @@ export default function Check() {
   }
 
   function View9090({ area }) {
-    if (!data.find((item) => item.area === area).data) {
+    if (!data.some((item) => item.area === area)) {
       return <div>Loading...</div>;
     }
     const status = data.find((item) => item.area === area).data;
