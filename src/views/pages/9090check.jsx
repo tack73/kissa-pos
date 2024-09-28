@@ -92,7 +92,11 @@ export default function Check() {
   }
 
   function View9090({ area }) {
-    if (!data.some((item) => item.area === area)) {
+    const existsOrUndefined = (dataArray, area) => {
+      const foundItem = dataArray.find((item) => item.area === area);
+      return foundItem === undefined || foundItem.data === undefined;
+  };
+    if (existsOrUndefined(data, area)) {
       return <div>Loading...</div>;
     }
     const status = data.find((item) => item.area === area).data;
