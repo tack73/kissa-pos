@@ -57,20 +57,21 @@ export default function Check() {
     let result = [];
     result.push({
       area: "Tart",
-      data: getStatus9090({ area: "Tart", date: date }),
+      data: getStatus9090({ area: "Tart"}),
     });
     result.push({
       area: "Waffle",
-      data: getStatus9090({ area: "Waffle", date: date }),
+      data: getStatus9090({ area: "Waffle"}),
     });
     result.push({
       area: "Ginger",
-      data: getStatus9090({ area: "Ginger", date: date }),
+      data: getStatus9090({ area: "Ginger"}),
     });
     result.push({
       area: "Consomme_Soup",
-      data: getStatus9090({ area: "Consomme_Soup", date: date }),
+      data: getStatus9090({ area: "Consomme_Soup"}),
     });
+    console.log(result , date)
     setData(result);
     console.log(data);
   }
