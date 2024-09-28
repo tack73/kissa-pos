@@ -2,13 +2,15 @@ import express from "express";
 import Status9090 from "../models/9090.mjs";
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    Status9090.find({name: req.params.name}).sort([["createdAt", -1]]).then((status) => {
+router.get("/:name/:year-:month-:day", (req, res) => {
+    const { name, year, month, day } = req.params;
+    const date = `${year}/${month}/${day}`;
+    Status9090.find({name: name}).sort([["createdAt", -1]]).then((status) => {
         let results = [];
         let index = 1;
         status.forEach((element) => {
             const time = `${element.time.getFullYear()}/${element.time.getMonth() + 1}/${element.time.getDate()}`;
-            if(time === req.params.time){
+            if(time === date){
                 results.push({
                     name: element.name,
                     time: element.time,

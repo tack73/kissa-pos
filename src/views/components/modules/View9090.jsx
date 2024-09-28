@@ -9,8 +9,10 @@ export default function Check9090({ area, date }) {
   const [data, setData] = useState([]);
   const endpoint = "api/status9090/";
   function getStatus9090({ area, date }) {
+    const dateSplitted = date.split("/");
+    const time = `${dateSplitted[0]}-${dateSplitted[1]}-${dateSplitted[2]}`;
     axios
-      .get(endpoint, { params: { name: area, time: date } })
+      .get(endpoint + `${area}/${time}`)
       .then(function (response) {
         setData(response.data);
       });

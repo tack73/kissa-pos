@@ -71,9 +71,17 @@ POST https://script.google.com/macros/s/AKfycbxItAYZ6vyT9Nn_YcTBMvyeQA2qWRL0YQNF
 }
 
 ###
+GET http://localhost:8080/api/status9090/Ginger/2024-9-24
+
+
+###
+GET http://localhost:8080/api/status9090/date
+###
 # GET https://script.google.com/macros/s/AKfycbzlgYf_yMU8CMUJYdi3DkpI9xx5gZk08QjB4wMfaOQxtalx-iracng1eXh9x52NNs-h_w/exec
 # Content-Type: application/json
 
 # {
 #   "name": "tart"
 # }
+
+
