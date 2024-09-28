@@ -41,7 +41,12 @@ export default function Check() {
       const dateSplitted = date.split("/");
       const time = `${dateSplitted[0]}-${dateSplitted[1]}-${dateSplitted[2]}`;
       axios.get(endpoint + area + "/" + time).then(function (response) {
-        return response.data;
+        let arr = [];
+        response.data.forEach((element) => {
+          element.time = new Date(element.time);
+          arr.push(element);
+        });
+        return arr;
       });
     }
     let data = [];
