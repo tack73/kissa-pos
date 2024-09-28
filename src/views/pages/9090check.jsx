@@ -49,26 +49,30 @@ export default function Check() {
         return arr;
       });
     }
-    let data = [];
-    data.push({
+    let result = [];
+    result.push({
       area: "Tart",
       data: getStatus9090({ area: "Tart", date: date }),
     });
-    data.push({
+    result.push({
       area: "Waffle",
       data: getStatus9090({ area: "Waffle", date: date }),
     });
-    data.push({
+    result.push({
       area: "Ginger",
       data: getStatus9090({ area: "Ginger", date: date }),
     });
-    data.push({
+    result.push({
       area: "Consomme_Soup",
       data: getStatus9090({ area: "Consomme_Soup", date: date }),
     });
-    setData(data);
+    setData(result);
+    console.log(data);
+
   }
   useEffect(() => {
+    getDates();
+    setStatus9090({ date: date });
     const login = async () => {
       const user = await app.logIn(Realm.Credentials.anonymous());
       setUser(user); // Connect to the database
