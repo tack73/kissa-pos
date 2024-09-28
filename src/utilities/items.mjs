@@ -18,7 +18,7 @@ const itemsData = [
   },
   {
     "id": 3,
-    "name": "ホットコーヒー",
+    "name": "ホットコーヒー(mild)",
     "type": "Drinks",
     "price": 200,
     "image": "/img/menu/coffee.jpg",
@@ -96,6 +96,15 @@ const itemsData = [
     "image": "/img/menu/consomme.jpg",
     "allergen": [1, 2],
     "area" : "Consomme_Soup"
+  },
+  {
+    "id": 13,
+    "name": "ホットコーヒー(strong)",
+    "type": "Drinks",
+    "price": 200,
+    "image": "/img/menu/coffee.jpg",
+    "allergen": [],
+    "area" : "Coffee"
   }
 ]
 
