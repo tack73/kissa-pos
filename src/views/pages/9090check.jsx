@@ -96,6 +96,7 @@ export default function Check() {
       return <div>Loading...</div>;
     }
     const status = data.find((item) => item.area === area).data;
+    console.log(data)
     console.log(status);
     return (
       <div>
