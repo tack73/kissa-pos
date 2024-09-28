@@ -79,6 +79,7 @@ export default function Check() {
       return <div>Loading...</div>;
     }
     const status = data.find((item) => item.area === area).data;
+    console.log(status);
     return (
       <div>
         <h1>{area}</h1>
