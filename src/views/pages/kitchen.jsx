@@ -6,6 +6,7 @@ import { RxCross2 } from "react-icons/rx";
 import * as Realm from "realm-web";
 import styles from "./kitchen.module.css";
 import Select from "react-select";
+import OrderItemView from "../components/atoms/orderItemView";
 
 // import OrderItemView from "../components/atoms/orderItemView";
 // import itemsData from "../../utilities/items.json";
@@ -181,6 +182,10 @@ export default function Kitchen({ area, setArea }) {
       {area === "Ginger" && (
         <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
       )}
+      <>
+        <h1>注文状況</h1>
+        <OrderView area={area} setArea={setArea} />
+      </>
 
       {isPopupVisible && <Popup />}
     </>
@@ -202,69 +207,70 @@ function Submit9090({ area, setIsPopupVisible }) {
     </div>
   );
 }
-// export default function Kitchen({ area, setArea }) {
-//   const [user, setUser] = useState(null);
-//   const [events, setEvents] = useState([]);
-//   const [order, setOrder] = useState([]);
-//   const [areaName, setAreaName] = useState("Drink");
-//   const endpoint = "api/orders/orderitems/";
 
-//   function getOrderItems(area) {
-//     axios.get(endpoint + area).then(function (response) {
-//       setOrder(response.data);
-//     });
-//   }
-//   function confAreaName(){
-//     if(area === "Consomme_Soup"){
-//       setAreaName("コンソメ");
-//     }else if(area === "Qroque_Monsieur"){
-//       setAreaName("QM");
-//     }else {
-//       setAreaName(area);
-//     }
+function OrderView({ area, setArea }) {
+  const [user, setUser] = useState(null);
+  const [events, setEvents] = useState([]);
+  const [order, setOrder] = useState([]);
+  const [areaName, setAreaName] = useState("Drink");
+  const endpoint = "api/orders/orderitems/";
 
-//   }
-//   useEffect(() => {
-//     confAreaName();
-//     const login = async () => {
-//       // Authenticate anonymously
-//       const user = await app.logIn(Realm.Credentials.anonymous());
-//       setUser(user); // Connect to the database
-//       getOrderItems(area);
+  function getOrderItems(area) {
+    axios.get(endpoint + area).then(function (response) {
+      setOrder(response.data);
+    });
+  }
+  function confAreaName(){
+    if(area === "Consomme_Soup"){
+      setAreaName("コンソメ");
+    }else if(area === "Qroque_Monsieur"){
+      setAreaName("QM");
+    }else {
+      setAreaName(area);
+    }
 
-//       const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-//       const collection = mongodb.db("test").collection("orders"); // Everytime a change happens in the stream, add it to the list of events
+  }
+  useEffect(() => {
+    confAreaName();
+    const login = async () => {
+      // Authenticate anonymously
+      const user = await app.logIn(Realm.Credentials.anonymous());
+      setUser(user); // Connect to the database
+      getOrderItems(area);
 
-//       for await (const change of collection.watch()) {
-//         setEvents((events) => [...events, change]);
-//         getOrderItems(area);
-//       }
-//     };
-//     login();
-//   }, []);
+      const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+      const collection = mongodb.db("test").collection("orders"); // Everytime a change happens in the stream, add it to the list of events
 
-//   const options = [
-//     { value: "Drink", label: "Drink" },
-//     { value: "Waffle", label: "Waffle" },
-//     { value: "Parfait", label: "Parfait" },
-//     { value: "Qroque_Monsieur", label: "Qroque Monsieur"},
-//     { value : "Consomme_Soup", label: "Consomme Soup"}
-//   ];
-//   function handleChange(e) {
-//     setArea(e.value);
-//     confAreaName();
-//   }
-//   // Return the JSX that will generate HTML for the page
+      for await (const change of collection.watch()) {
+        setEvents((events) => [...events, change]);
+        getOrderItems(area);
+      }
+    };
+    login();
+  }, []);
 
-//   return (
-//     <>
-//       <div className={styles.nav}>
-//         <h1>{areaName}区域 </h1>
-//         <Select placeholder={area} options={options} isSearchable={false} onChange={handleChange} className={styles.selectView} />
-//       </div>
+  const options = [
+    { value: "Drink", label: "Drink" },
+    { value: "Waffle", label: "Waffle" },
+    { value: "Parfait", label: "Parfait" },
+    { value: "Qroque_Monsieur", label: "Qroque Monsieur"},
+    { value : "Consomme_Soup", label: "Consomme Soup"}
+  ];
+  function handleChange(e) {
+    setArea(e.value);
+    confAreaName();
+  }
+  // Return the JSX that will generate HTML for the page
 
-//       {order.map((v, i) => (
-//         <OrderItemView order={v} />
-//       ))}
-//     </>
-//   );
+  return (
+    <>
+      <div className={styles.nav}>
+        <h1>{areaName}区域 </h1>
+        <Select placeholder={area} options={options} isSearchable={false} onChange={handleChange} className={styles.selectView} />
+      </div>
+
+      {order.map((v, i) => (
+        <OrderItemView order={v} />
+      ))}
+    </>
+  );}

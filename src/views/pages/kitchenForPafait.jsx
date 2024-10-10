@@ -14,7 +14,7 @@ export default function KitchenForPafait({ area, setArea }) {
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
   const [order, setOrder] = useState([]);
-  const [areaName, setAreaName] = useState("Parfait");
+  const [areaName, setAreaName] = useState("Drink");
   const endpoint = "api/orders/orderitems/";
   setArea("Parfait");
 
@@ -54,7 +54,14 @@ export default function KitchenForPafait({ area, setArea }) {
   }, []);
 
   const options = [
-    { value: "Parfait", label: "Parfait" }
+    { value: "Drink", label: "Drink" },
+    { value: "Ginger", label: "Ginger" },
+    { value: "Coffee", label: "Coffee" },
+    { value: "Tart", label: "Tart" },
+    { value: "Waffle", label: "Waffle" },
+    { value: "Parfait", label: "Parfait" },
+    { value: "Qroque_Monsieur", label: "Qroque Monsieur" },
+    { value: "Consomme_Soup", label: "Consomme Soup" },
   ];
   function handleChange(e) {
     setArea(e.value);
