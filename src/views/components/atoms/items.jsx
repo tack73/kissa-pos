@@ -13,7 +13,7 @@ export default function Item({ id, setTarget }) {
   return (
     <button className="itemButton" onClick={handleClick}>
       <div className="item">
-        <img src={image} alt={name} className="itemImg" />
+        {/* <img src={image} alt={name} className="itemImg" /> */}
         <div className="itemInfo">
           <p className="itemInfo-name">{name}</p>
           <p>{price} yen</p>
