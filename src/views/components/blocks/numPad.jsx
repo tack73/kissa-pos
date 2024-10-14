@@ -7,9 +7,9 @@ export default function NumPad({ setNum, num }) {
       setNum(0);
       return;
     }
-    if (targetNum === "0" && num === 1) {
-      return;
-    }
+    // if (targetNum === "0" && num === 1) {
+    //   return;
+    // }
     if (num === 0) {
       setNum(Number(targetNum));
     } else {

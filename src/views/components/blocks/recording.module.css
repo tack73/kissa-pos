@@ -1,0 +1,11 @@
+.recording {
+  position: fixed;
+  left: 42vw;
+  z-index: 9997;
+  width: 23vw;
+  top: 12vh;
+}
+.submit9090 {
+  display: flex;
+  align-items: center;
+}

@@ -9,6 +9,14 @@ const statusSchema = new Schema(
         time:{
             type: Date,
             required: true
+        },
+        type:{
+            type: String,
+            required: true
+        },
+        rotationTimes:{
+            type: Number,
+            required: true
         }
     }
 );

@@ -7,6 +7,7 @@ import * as Realm from "realm-web";
 import styles from "./kitchen.module.css";
 import Select from "react-select";
 import OrderItemView from "../components/atoms/orderItemView";
+import Recording from "../components/blocks/recording";
 
 // import OrderItemView from "../components/atoms/orderItemView";
 // import itemsData from "../../utilities/items.json";
@@ -20,6 +21,7 @@ export default function Kitchen({ area, setArea }) {
   const [areaName, setAreaName] = useState("Drink");
   const [items, setItems] = useState([]);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [rotationTimes, setRotationTimes] = useState(1);
   const endpoint = "api/status/";
 
   function getOrderItems(area) {
@@ -75,6 +77,7 @@ export default function Kitchen({ area, setArea }) {
     { value: "Consomme_Soup", label: "Consomme Soup" },
   ];
   function handleChange(e) {
+    if (e.value === area) return;
     setArea(e.value);
     setItems(getCockItemName(area));
     confAreaName();
@@ -94,7 +97,10 @@ export default function Kitchen({ area, setArea }) {
     }
     return (
       <div className={styles.itemView}>
-        <h2>{itemName}</h2>
+        <div className={styles.itemTitle}>
+          <h2>{itemName}</h2>
+        </div>
+
         <div className={styles.buttons}>
           <button
             onClick={() => {
@@ -106,7 +112,7 @@ export default function Kitchen({ area, setArea }) {
                 : styles.registButton_notClick
             }
           >
-            <FaRegCircle size={50} />
+            <FaRegCircle size={35} />
             <p>提供可能</p>
           </button>
           <button
@@ -119,7 +125,7 @@ export default function Kitchen({ area, setArea }) {
                 : styles.registButton_notClick
             }
           >
-            <TbTriangle size={50} />
+            <TbTriangle size={35} />
             <p>あと数個でローテ終了</p>
           </button>
           <button
@@ -132,7 +138,7 @@ export default function Kitchen({ area, setArea }) {
                 : styles.registButton_notClick
             }
           >
-            <RxCross2 size={50} />
+            <RxCross2 size={35} />
             <p>ローテ インターバル</p>
           </button>
         </div>
@@ -148,8 +154,10 @@ export default function Kitchen({ area, setArea }) {
     );
   }
 
+  
+
   return (
-    <>
+    <div className={styles.Kitchen}>
       <div className={styles.nav}>
         <h1>{areaName}区域 </h1>
         <Select
@@ -160,8 +168,7 @@ export default function Kitchen({ area, setArea }) {
           className={styles.selectView}
         />
       </div>
-      <div>
-        <h1>提供状況</h1>
+      <div className={styles.serveStatus}>
         {items.map((item, index) => (
           <AvailabilityView
             itemName={item.name}
@@ -170,49 +177,25 @@ export default function Kitchen({ area, setArea }) {
           />
         ))}
       </div>
-      {area === "Consomme_Soup" && (
-        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
-      )}
-      {area === "Waffle" && (
-        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
-      )}
-      {area === "Tart" && (
-        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
-      )}
-      {area === "Ginger" && (
-        <Submit9090 area={area} setIsPopupVisible={setIsPopupVisible} />
-      )}
-      <>
+      <div className={styles.orderStatus}>
         <h1>注文状況</h1>
         <OrderView area={area} setArea={setArea} />
-      </>
+      </div>
+      <div className={styles.recording}>
+        <Recording area={area} rotationTimes={rotationTimes} setIsPopupVisible = {setIsPopupVisible} />
+      </div>
 
       {isPopupVisible && <Popup />}
-    </>
-  );
-}
-
-function Submit9090({ area, setIsPopupVisible }) {
-  const endpoint9090 ="/api/status9090";
-  function submit9090() {
-    setIsPopupVisible(true);
-    const today = new Date();
-    axios.post(endpoint9090, { name: area, time: today }).then(() => {
-      setIsPopupVisible(false);
-  });
-  }
-  return (
-    <div>
-      <button onClick={submit9090}>9090送信</button>
     </div>
   );
 }
 
-function OrderView({ area, setArea }) {
+
+
+function OrderView({ area }) {
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
   const [order, setOrder] = useState([]);
-  const [areaName, setAreaName] = useState("Drink");
   const endpoint = "api/orders/orderitems/";
 
   function getOrderItems(area) {
@@ -220,18 +203,7 @@ function OrderView({ area, setArea }) {
       setOrder(response.data);
     });
   }
-  function confAreaName(){
-    if(area === "Consomme_Soup"){
-      setAreaName("コンソメ");
-    }else if(area === "Qroque_Monsieur"){
-      setAreaName("QM");
-    }else {
-      setAreaName(area);
-    }
-
-  }
   useEffect(() => {
-    confAreaName();
     const login = async () => {
       // Authenticate anonymously
       const user = await app.logIn(Realm.Credentials.anonymous());
@@ -248,30 +220,13 @@ function OrderView({ area, setArea }) {
     };
     login();
   }, []);
-
-  const options = [
-    { value: "Drink", label: "Drink" },
-    { value: "Waffle", label: "Waffle" },
-    { value: "Parfait", label: "Parfait" },
-    { value: "Qroque_Monsieur", label: "Qroque Monsieur"},
-    { value : "Consomme_Soup", label: "Consomme Soup"}
-  ];
-  function handleChange(e) {
-    setArea(e.value);
-    confAreaName();
-  }
   // Return the JSX that will generate HTML for the page
 
   return (
     <>
-      <div className={styles.nav}>
-        <h1>{areaName}区域 </h1>
-        <Select placeholder={area} options={options} isSearchable={false} onChange={handleChange} className={styles.selectView} />
-      </div>
-
       {order.map((v, i) => (
         <OrderItemView order={v} />
       ))}
     </>
-  );}
-  
+  );
+}

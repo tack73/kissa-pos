@@ -48,8 +48,10 @@ router.get("/orderitems/:area", (req, res) => {
     var orderItems = [];
     orders.forEach((order) => {
       const submitId = order.submitId;
+      const date = new Date(order.createdAt);
       order.orderItems.forEach((v) => {
         var orderItem = v.toObject();
+        orderItem.date = date;
         orderItem.submitId = submitId;
         if (orderItem.isCompleted === false && orderItem.area === req.params.area) orderItems.push(orderItem);
       });

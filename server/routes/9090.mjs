@@ -2,21 +2,19 @@ import express from "express";
 import Status9090 from "../models/9090.mjs";
 const router = express.Router();
 
-router.get("/:name/:year-:month-:day", (req, res) => {
-    const { name, year, month, day } = req.params;
+router.get("/:type/:name/:year-:month-:day", (req, res) => {
+    const { type, name, year, month, day } = req.params;
     const date = `${year}/${month}/${day}`;
-    Status9090.find({name: name}).sort([["createdAt", -1]]).then((status) => {
+    Status9090.find({ name: name, type: type }).sort([["createdAt", -1]]).then((status) => {
         let results = [];
-        let index = 1;
         status.forEach((element) => {
             const time = `${element.time.getFullYear()}/${element.time.getMonth() + 1}/${element.time.getDate()}`;
-            if(time === date){
+            if (time === date) {
                 results.push({
                     name: element.name,
                     time: element.time,
-                    index : index
+                    rotationTimes: element.rotationTimes
                 });
-                index++;
             }
         });
         res.json(results);
@@ -24,12 +22,12 @@ router.get("/:name/:year-:month-:day", (req, res) => {
 }
 );
 
-router.get("/date",(req,res)=>{
-    Status9090.find().sort([["createdAt", -1]]).then((status) => {
+router.get("/9090/date", (req, res) => {
+    Status9090.find({ type: "9090" }).sort([["createdAt", -1]]).then((status) => {
         let results = [];
         status.forEach((element) => {
             const time = `${element.time.getFullYear()}/${element.time.getMonth() + 1}/${element.time.getDate()}`;
-            if(!results.includes(time)){
+            if (!results.includes(time)) {
                 results.push(time);
             }
         });
@@ -37,10 +35,38 @@ router.get("/date",(req,res)=>{
     });
 })
 
+router.get("/9090/:name/lastTime", (req, res) => {
+    Status9090.find({ name: req.params.name, type: "9090" }).sort([["createdAt", -1]]).then((status) => {
+        if (status.length === 0) {
+            res.json(0);
+            return;
+        }
+        status.filter((element) => {
+            const time = `${element.time.getFullYear()}/${element.time.getMonth() + 1}/${element.time.getDate()}`;
+            const now = new Date();
+            const today = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+            return time === today;
+        });
+        if (status.length === 0) {
+            res.json(0);
+            return;
+        };
+        let lastTime = 0;
+        status.forEach((element) => {
+            if (lastTime < element.rotationTimes) {
+                lastTime = element.rotationTimes;
+            }
+        });
+        res.json(lastTime);
+    })
+});
+
 router.post("/", (req, res) => {
     const status = new Status9090({
         name: req.body.name,
         time: req.body.time,
+        type: req.body.type,
+        rotationTimes: req.body.rotationTimes
     });
     status.save().then((val) => {
         res.json(val);

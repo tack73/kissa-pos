@@ -1,6 +1,6 @@
 .order_item {
-    width:90vw;
-    margin: 10px 5vw;
+    width:38vw;
+    margin: 10px 2vw;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -8,23 +8,27 @@
 }
 .quantity {
     position: absolute;
-    left :30vw;
+    left :20vw;
 }
 .submitId {
     position: absolute;
-    left: 40vw;
+    left: 25vw;
 }
 .complete {
     position: absolute;
-    left : 60vw;
+    left : 35vw;
+}
+.date {
+    position: absolute;
+    left: 25vw;
 }
 .popup {
     position: fixed;
     z-index: 100;
     top: 50%;
-    left: 50%;
+    left: 30vw;
     transform: translate(-50%, -50%);
-    width: 70vw;
+    width: 50vw;
     height: 40vh;
     background-color: #ffffff;
     border: 1px solid #0000007d;
