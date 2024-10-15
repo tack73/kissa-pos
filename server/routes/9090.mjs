@@ -35,8 +35,8 @@ router.get("/9090/date", (req, res) => {
     });
 })
 
-router.get("/9090/:name/lastTime", (req, res) => {
-    Status9090.find({ name: req.params.name, type: "9090" }).sort([["createdAt", -1]]).then((status) => {
+router.get("/cooking-start/:name/lastTime", (req, res) => {
+    Status9090.find({ name: req.params.name, type: "cooking-start" }).sort([["createdAt", -1]]).then((status) => {
         if (status.length === 0) {
             res.json(0);
             return;

@@ -9,3 +9,35 @@
   display: flex;
   align-items: center;
 }
+.popup {
+  position: fixed;
+  top: 13vh;
+  left: 35vw;
+  width: 30vw;
+  height: 80vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.popup button{
+  background-color: #f1f1f1;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.buttonRotationNum{
+  margin-left: 20px;
+  height: 30px;
+  width: 50px;
+  background-color: #f8f9fa;
+}

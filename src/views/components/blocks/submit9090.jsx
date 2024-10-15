@@ -46,6 +46,9 @@ export default function Submit9090({
     case "transfer" :
       text = "移し替え";
       break;
+    case "cooking-start":
+      text = "調理開始";
+      break;
     default: 
       text = "例外";
   }

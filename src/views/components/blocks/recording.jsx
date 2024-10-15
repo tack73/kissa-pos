@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./recording.module.css";
 import Submit9090 from "../blocks/submit9090";
+import NumPad from "../blocks/numPad";
 import * as Realm from "realm-web";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import NumPad from "react-numpad";
 
 const app = new Realm.App({ id: "application-0-vmbzlrz" });
 
@@ -12,12 +12,15 @@ export default function Recording({ area, setIsPopupVisible }) {
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
   const [lastRotationTimes, setLastRotationTimes] = useState(0);
-  const [rotationNum, setRotationNum] = useState();
+  const [rotationNum, setRotationNum] = useState(0);
+  const [isNumPadVisible, setIsNumPadVisible] = useState(false);
 
   function getLastRotationTimes() {
-    axios.get(`api/status9090/9090/${area}/lastTime`).then(function (response) {
-      setLastRotationTimes(response.data);
-    });
+    axios
+      .get(`api/status9090/cooking-start/${area}/lastTime`)
+      .then(function (response) {
+        setLastRotationTimes(response.data);
+      });
   }
   useEffect(() => {
     getLastRotationTimes();
@@ -36,20 +39,50 @@ export default function Recording({ area, setIsPopupVisible }) {
     login();
   }, []);
 
+  function Header() {
+    return (
+      <>
+        <h1>各種記録</h1>
+        <p>最終送信（調理開始時） : {lastRotationTimes}</p>
+        <div className={styles.submit9090}>
+        <p>現在のローテ : {rotationNum}</p>
+        <button
+          onClick={() => {
+            setRotationNum(0);
+            setIsNumPadVisible(true);
+          }}
+          className={styles.buttonRotationNum}
+        >
+          変更
+        </button>
+        </div>
+        
+        <div className={styles.submit9090}>
+          <h2>調理開始</h2>
+          <Submit9090
+            area={area}
+            setIsPopupVisible={setIsPopupVisible}
+            type={"cooking-start"}
+            rotationTimes={rotationNum}
+          />
+        </div>
+        {isNumPadVisible && (
+          <div className={styles.popup}>
+            <div className={styles.popup_numpad}>
+              <NumPad setNum={setRotationNum} num={rotationNum} />
+              <button onClick={() => setIsNumPadVisible(false)}>完了</button>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
+
   switch (area) {
     case "Drink":
       return (
         <div className={styles.recording}>
-          <h1>各種記録</h1>
-          <NumPad.Number
-            onChange={(value) => {
-              setRotationNum(value);
-            }}
-            label={"現在のローテ回数"}
-            placeholder={"ローテ回数"}
-            value={rotationNum}
-            decimal={false}
-          />
+          <Header />
           <div className={styles.submit9090}>
             <h2>ジンジャーエール-保冷開始</h2>
             <Submit9090
@@ -73,17 +106,7 @@ export default function Recording({ area, setIsPopupVisible }) {
     case "Ginger":
       return (
         <div className={styles.recording}>
-          <h1>各種記録</h1>
-          <NumPad.Number
-            onChange={(value) => {
-              setRotationNum(value);
-            }}
-            label={"現在のローテ回数"}
-            placeholder={"ローテ回数"}
-            value={rotationNum}
-            decimal={false}
-          />
-          <p>最終9090送信 : {lastRotationTimes}</p>
+          <Header />
           <div className={styles.submit9090}>
             <h2>90-90送信</h2>
             <Submit9090
@@ -116,17 +139,7 @@ export default function Recording({ area, setIsPopupVisible }) {
     case "Tart":
       return (
         <div className={styles.recording}>
-          <h1>各種記録</h1>
-          <NumPad.Number
-            onChange={(value) => {
-              setRotationNum(value);
-            }}
-            label={"現在のローテ回数"}
-            placeholder={"ローテ回数"}
-            value={rotationNum}
-            decimal={false}
-          />
-          <p>最終9090送信 : {lastRotationTimes}</p>
+          <Header />
           <div className={styles.submit9090}>
             <h2>90-90送信</h2>
             <Submit9090
@@ -141,17 +154,7 @@ export default function Recording({ area, setIsPopupVisible }) {
     case "Waffle":
       return (
         <div className={styles.recording}>
-          <h1>各種記録</h1>
-          <NumPad.Number
-            onChange={(value) => {
-              setRotationNum(value);
-            }}
-            label={"現在のローテ回数"}
-            placeholder={"ローテ回数"}
-            value={rotationNum}
-            decimal={false}
-          />
-          <p>最終9090送信 : {lastRotationTimes}</p>
+          <Header />
           <div className={styles.submit9090}>
             <h2>90-90送信</h2>
             <Submit9090
@@ -166,16 +169,7 @@ export default function Recording({ area, setIsPopupVisible }) {
     case "Consomme_Soup":
       return (
         <div className={styles.recording}>
-          <h1>各種記録</h1>
-          <NumPad.Number
-            onChange={(value) => {
-              setRotationNum(value);
-            }}
-            label={"現在のローテ回数"}
-            placeholder={"ローテ回数"}
-            value={rotationNum}
-            decimal={false}
-          />
+          <Header />
           <p>最終9090送信 : ローテ {lastRotationTimes}</p>
           <div className={styles.submit9090}>
             <h2>90-90送信</h2>
@@ -198,6 +192,10 @@ export default function Recording({ area, setIsPopupVisible }) {
         </div>
       );
     default:
-      return;
+      return (
+        <div className={styles.recording}>
+          <Header />
+        </div>
+      );
   }
 }
