@@ -1,6 +1,6 @@
 import express from 'express';
 import apiRoutes from './routes/index.mjs';
-import  './helpers/db.mjs';
+import './helpers/db.mjs';
 import cors from 'cors';
 import env from 'dotenv';
 import path from 'path';
@@ -11,11 +11,12 @@ env.config();
 const app = express();
 const port = process.env.PORT || 8080;
 
+console.log("Middleware");
 const token = process.env.DISCORD_TOKEN;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-client.once(Events.ClientReady, c => {
-    console.log(`準備OKです! ${c.user.tag}がログインします。`);
-});
+// client.once(Events.ClientReady, c => {
+//   console.log(`準備OKです! ${c.user.tag}がログインします。`);
+// });
 client.login(token);
 
 app.use(express.static("build"));
@@ -33,9 +34,9 @@ app.use((req, res, next) => {
 })
 
 //API
-app.use('/api',apiRoutes);
+app.use('/api', apiRoutes);
 
-app.get("*",(req,res)=>{
+app.get("*", (req, res) => {
   const indexHtml = path.resolve("build", "index.html");
   res.sendFile(indexHtml);
 })
@@ -45,7 +46,7 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  if(res.headersSent){
+  if (res.headersSent) {
     return next(err);
   }
   res.status(500).json({ msg: '500 Internal Server Error' });
