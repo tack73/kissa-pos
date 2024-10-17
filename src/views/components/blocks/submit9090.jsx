@@ -19,8 +19,9 @@ export default function Submit9090({
         type: type,
         rotationTimes: rotationTimes,
       }).then(() => {
-        let channel;
-        let submitTime;
+        let channel = area;
+        if( area === "Drink") area = "Ginger";
+        let submitTime = `${today.getHours()}-${today.getMinutes()}-${today.getSeconds()}`;
         axios.get(
           `/api/discord/${channel}/${type}/${rotationTimes}/${submitTime}`
         );
