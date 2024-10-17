@@ -4,10 +4,19 @@ import  './helpers/db.mjs';
 import cors from 'cors';
 import env from 'dotenv';
 import path from 'path';
+import { Client, GatewayIntentBits, Events } from 'discord.js';
 env.config();
+
 
 const app = express();
 const port = process.env.PORT || 8080;
+
+const token = process.env.DISCORD_TOKEN;
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+client.once(Events.ClientReady, c => {
+    console.log(`準備OKです! ${c.user.tag}がログインします。`);
+});
+client.login(token);
 
 app.use(express.static("build"));
 app.use(express.json());
@@ -17,6 +26,11 @@ app.use(cors({
   // origin: "http://localhost:3000",
   origin: "*",
 }));
+
+app.use((req, res, next) => {
+  req.discordClient = client;
+  next();
+})
 
 //API
 app.use('/api',apiRoutes);

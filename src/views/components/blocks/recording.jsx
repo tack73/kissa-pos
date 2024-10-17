@@ -14,6 +14,7 @@ export default function Recording({ area, setIsPopupVisible }) {
   const [lastRotationTimes, setLastRotationTimes] = useState(0);
   const [rotationNum, setRotationNum] = useState(0);
   const [isNumPadVisible, setIsNumPadVisible] = useState(false);
+  const [is9090PopupVisible, setIs9090PopupVisible] = useState(false);
 
   function getLastRotationTimes() {
     axios
@@ -61,7 +62,7 @@ export default function Recording({ area, setIsPopupVisible }) {
           <h2>調理開始</h2>
           <Submit9090
             area={area}
-            setIsPopupVisible={setIsPopupVisible}
+            setIsPopupVisible={setIs9090PopupVisible}
             type={"cooking-start"}
             rotationTimes={rotationNum}
           />
@@ -71,6 +72,14 @@ export default function Recording({ area, setIsPopupVisible }) {
             <div className={styles.popup_numpad}>
               <NumPad setNum={setRotationNum} num={rotationNum} />
               <button onClick={() => setIsNumPadVisible(false)}>完了</button>
+            </div>
+          </div>
+        )}
+        {is9090PopupVisible && (
+          <div className={styles.popup}>
+            <div className={styles.popup_numpad}>
+              <h2 className={styles.submitCompleted}>送信完了</h2>
+              <button onClick={() => setIs9090PopupVisible(false)}>閉じる</button>
             </div>
           </div>
         )}
@@ -87,7 +96,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>ジンジャーエール-保冷開始</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"keep-cooling-start"}
               rotationTimes={rotationNum}
             />
@@ -96,7 +105,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>ジンジャーエール-保冷終了</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"keep-cooling-end"}
               rotationTimes={rotationNum}
             />
@@ -111,7 +120,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>90-90送信</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"9090"}
               rotationTimes={rotationNum}
             />
@@ -120,7 +129,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>冷却開始</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"cooling-start"}
               rotationTimes={rotationNum}
             />
@@ -129,7 +138,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>冷却終了</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"cooling-end"}
               rotationTimes={rotationNum}
             />
@@ -144,7 +153,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>90-90送信</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"9090"}
               rotationTimes={rotationNum}
             />
@@ -159,7 +168,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>90-90送信</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"9090"}
               rotationTimes={rotationNum}
             />
@@ -170,12 +179,11 @@ export default function Recording({ area, setIsPopupVisible }) {
       return (
         <div className={styles.recording}>
           <Header />
-          <p>最終9090送信 : ローテ {lastRotationTimes}</p>
           <div className={styles.submit9090}>
             <h2>90-90送信</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"9090"}
               rotationTimes={rotationNum}
             />
@@ -184,7 +192,7 @@ export default function Recording({ area, setIsPopupVisible }) {
             <h2>食缶移し替え</h2>
             <Submit9090
               area={area}
-              setIsPopupVisible={setIsPopupVisible}
+              setIsPopupVisible={setIs9090PopupVisible}
               type={"transfer"}
               rotationTimes={rotationNum}
             />

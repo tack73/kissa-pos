@@ -2,7 +2,7 @@ import express from "express";
 import Status9090 from "../models/9090.mjs";
 const router = express.Router();
 
-router.get("/:type/:name/:year-:month-:day", (req, res) => {
+router.get("/:type/:name/:year-:month-:day", (req, res) => { //種々のデータ取得
     const { type, name, year, month, day } = req.params;
     const date = `${year}/${month}/${day}`;
     Status9090.find({ name: name, type: type }).sort([["createdAt", -1]]).then((status) => {
@@ -34,6 +34,7 @@ router.get("/9090/date", (req, res) => {
         res.json(results);
     });
 })
+
 
 router.get("/cooking-start/:name/lastTime", (req, res) => {
     Status9090.find({ name: req.params.name, type: "cooking-start" }).sort([["createdAt", -1]]).then((status) => {

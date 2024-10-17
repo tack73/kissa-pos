@@ -1,35 +1,9 @@
-POST http://localhost:8080/api/orders 
+POST http://localhost:8080/api/orders
 Content-Type: application/json
 
-{
-    "persons": 2,
-    "orderItems": [
-        {
-            "itemId": 1,
-            "quantity": 3,
-            "options": {},
-            "orderId": "18f2276e8b3258",
-            "isCompleted": false
-        },
-        {
-            "itemId": 7,
-            "quantity": 2,
-            "options": {},
-            "orderId": "18f2277365c165",
-            "isCompleted": false
-        },
-        {
-            "itemId": 12,
-            "quantity": 3,
-            "options": {},
-            "orderId": "18f22774948187",
-            "isCompleted": false
-        }
-    ],
-    "total": 2400,
-    "payment": "cash",
-    "submitId": "18f22776a852d4"
-}
+	{"persons":1,"orderItems":[{"itemId":1,"area":"Drink","quantity":2,"orderId":"192911160d2342","isCompleted":false},{"itemId":6,"area":"Waffle","quantity":3,"orderId":"192911160d2389","isCompleted":false},{"itemId":12,"area":"Consomme_Soup","quantity":1,"orderId":"192911160d227c","isCompleted":false}],"total":0,"payment":"cash","submitId":"postFromGAS","tableNum":2,"isServed":false,"isEatIn":true}
+
+
 
 ###
 

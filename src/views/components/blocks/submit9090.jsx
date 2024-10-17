@@ -18,12 +18,17 @@ export default function Submit9090({
         time: today,
         type: type,
         rotationTimes: rotationTimes,
+      }).then(() => {
+        let channel;
+        let submitTime;
+        axios.get(
+          `/api/discord/${channel}/${type}/${rotationTimes}/${submitTime}`
+        );
       })
       .then(() => {
         axios.get(
-          "https://script.google.com/macros/s/AKfycbxUL_oKEON4D8nsEX6TLgLjTAIdruTiwsp6R43ASzKC3uK9uPPhPaGjqKeRqQ9ZYyk5/exec"
+          "https://script.google.com/macros/s/AKfycbz8FiuL9qVD10xbGfE9vGyXncwCfF5J5WQzGXqIFb2ao0FEliH9EU-I2eYyGrelqltAbw/exec"
         );
-        setIsPopupVisible(false);
       });
   }
   let text;

@@ -9,6 +9,9 @@
   display: flex;
   align-items: center;
 }
+.submitCompleted{
+  color: #f1f1f1;
+}
 .popup {
   position: fixed;
   top: 13vh;
