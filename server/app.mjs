@@ -11,13 +11,13 @@ env.config();
 const app = express();
 const port = process.env.PORT || 8080;
 
-console.log("Middleware");
-const token = process.env.DISCORD_TOKEN;
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+// const token = process.env.DISCORD_TOKEN;
+// console.log(token);
+// const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // client.once(Events.ClientReady, c => {
 //   console.log(`準備OKです! ${c.user.tag}がログインします。`);
 // });
-client.login(token);
+// client.login(token);
 
 app.use(express.static("build"));
 app.use(express.json());
@@ -29,7 +29,7 @@ app.use(cors({
 }));
 
 app.use((req, res, next) => {
-  req.discordClient = client;
+  // req.discordClient = client;
   next();
 })
 
