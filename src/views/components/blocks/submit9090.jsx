@@ -22,14 +22,8 @@ export default function Submit9090({
         let channel = area;
         if( area === "Drink") area = "Ginger";
         let submitTime = `${today.getHours()}-${today.getMinutes()}-${today.getSeconds()}`;
-        axios.get(
-          `/api/discord/${channel}/${type}/${rotationTimes}/${submitTime}`
-        );
-      })
-      .then(() => {
-        axios.get(
-          "https://script.google.com/macros/s/AKfycbz8FiuL9qVD10xbGfE9vGyXncwCfF5J5WQzGXqIFb2ao0FEliH9EU-I2eYyGrelqltAbw/exec"
-        );
+        axios.get(`/api/discord/${channel}/${type}/${rotationTimes}/${submitTime}`);
+        axios.get("https://script.google.com/macros/s/AKfycbz8FiuL9qVD10xbGfE9vGyXncwCfF5J5WQzGXqIFb2ao0FEliH9EU-I2eYyGrelqltAbw/exec");
       });
   }
   let text;
