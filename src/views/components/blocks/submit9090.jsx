@@ -21,9 +21,8 @@ export default function Submit9090({
         rotationTimes: rotationTimes,
       }).then(() => {
         let channel = area;
-        if( area === "Drink") area = "Ginger";
-        let submitTime = `${today.getHours()}-${today.getMinutes()}-${today.getSeconds()}`;
-        console.log(`${endPointDiscord}/${channel}/${type}/${rotationTimes}/${submitTime}`);
+        if( area === "Drink") channel = "Ginger";
+        let submitTime = `${today.getHours() + 1}-${today.getMinutes()}-${today.getSeconds()}`;
         axios.get(`${endPointDiscord}/${channel}/${type}/${rotationTimes}/${submitTime}`);
         axios.get("https://script.google.com/macros/s/AKfycbz8FiuL9qVD10xbGfE9vGyXncwCfF5J5WQzGXqIFb2ao0FEliH9EU-I2eYyGrelqltAbw/exec");
       });
