@@ -42,12 +42,38 @@ router.get("/cooking-start/:name/lastTime", (req, res) => {
             res.json(0);
             return;
         }
-        status.filter((element) => {
+        let tmp = [];
+        status.forEach((element) => {
+            element.time = new Date(element.time);
             const time = `${element.time.getFullYear()}/${element.time.getMonth() + 1}/${element.time.getDate()}`;
             const now = new Date();
             const today = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
-            return time === today;
+            console.log(time, today);
+            if (time === today) {
+                tmp.push(element);
+                return;
+            }else{
+                return;
+            }
         });
+        // status.filter((element) => {
+        //     element.time = new Date(element.time);
+        //     const time = `${element.time.getFullYear()}/${element.time.getMonth() + 1}/${element.time.getDate()}`;
+        //     const now = new Date();
+        //     const today = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+        //     console.log(time, today);
+        //     console.log(element)
+            
+        //     if (time === today) {
+        //         console.log("true");
+        //         return true;
+        //     }else{
+        //         console.log("false");
+        //         return false;
+        //     }
+        // });
+        status = tmp;
+        console.log(status);
         if (status.length === 0) {
             res.json(0);
             return;

@@ -22,7 +22,7 @@ export default function Submit9090({
       }).then(() => {
         let channel = area;
         if( area === "Drink") channel = "Ginger";
-        let submitTime = `${today.getHours() + 1}-${today.getMinutes()}-${today.getSeconds()}`;
+        let submitTime = `${today.getHours()}-${today.getMinutes()}-${today.getSeconds()}`;
         axios.get(`${endPointDiscord}/${channel}/${type}/${rotationTimes}/${submitTime}`);
         axios.get("https://script.google.com/macros/s/AKfycbz8FiuL9qVD10xbGfE9vGyXncwCfF5J5WQzGXqIFb2ao0FEliH9EU-I2eYyGrelqltAbw/exec");
       });
