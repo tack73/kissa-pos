@@ -7,9 +7,9 @@ export default function Home({ setIsEatIn }) {
         <h1>喫茶班メインシステム</h1>
         <Link to="/pos" onClick={()=>{setIsEatIn(true)}}>POS-EAT IN</Link>
         <Link to="/pos" onClick={()=>{setIsEatIn(false)}}>POS-TAKE OUT</Link>
-        <Link to="/kitchen">Kitchen</Link>
-        <Link to="/waiterstation">Waiter Station</Link>
-        <Link to="/kitchenForPafait">KitchenForPafait</Link>
+        <Link to="/kitchen">厨房システム</Link>
+        <Link to="/sales">売上表示</Link>
+        <Link to="/serve-status-view">提供状況</Link>
       </div>
     );
   }

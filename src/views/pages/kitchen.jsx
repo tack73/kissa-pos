@@ -126,7 +126,7 @@ export default function Kitchen({ area, setArea }) {
             }
           >
             <TbTriangle size={35} />
-            <p>あと数個でローテ終了</p>
+            <p>ローテ インターバル</p>
           </button>
           <button
             onClick={() => {
@@ -139,7 +139,7 @@ export default function Kitchen({ area, setArea }) {
             }
           >
             <RxCross2 size={35} />
-            <p>ローテ インターバル</p>
+            <p>提供中止</p>
           </button>
         </div>
       </div>

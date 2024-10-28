@@ -1,0 +1,62 @@
+.statusList{
+    margin: 0 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 250px
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid #000; */
+    border-radius: 10px;
+    margin: 10px;
+    /* background-color: #f0f0f0; */
+}
+
+.container p{
+    text-shadow:0 0 10px #FF0;
+}
+
+.elementName{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* .serveStatusView{
+    background-image: url(../../../public/img/background.jpg);
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+} */
+
+.status{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.videoWrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.statusList{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+

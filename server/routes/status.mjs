@@ -18,7 +18,7 @@ router.get("/:area", (req, res) => {
 }
 );
 router.get("/", (req, res) => {
-    Status.find().then((status) => {
+    Status.find().sort([["id",1]]).then((status) => {
         let results = [];
         status.forEach((element) => {
             results.push({

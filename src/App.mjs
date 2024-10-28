@@ -14,7 +14,8 @@ import Home from "./views/pages/home.jsx";
 import WaiterStation from "./views/pages/waiterStation.jsx";
 import InventryCheck from "./views/pages/inventryCheck.jsx";
 import KitchenForPafait from "./views/pages/kitchenForPafait.jsx";
-import Check9090 from "./views/pages/9090check.jsx";
+import ServeStatusView from "./views/pages/serveStatusView.jsx";
+import SalesView from "./views/pages/salesView.jsx";
 
 function App() {
   const [order, setOrder] = useState([]);
@@ -73,7 +74,8 @@ function App() {
         <Route path="/waiterstation" element={<WaiterStation />} />
         <Route path="/inventrycheck" element={<InventryCheck />} />
         <Route path="/kitchenForPafait" element={<KitchenPafait />} />
-        <Route path="/9090check" element={<Check9090 />} />
+        <Route path="/serve-status-view" element={<ServeStatusView />} />
+        <Route path="/sales" element={<SalesView />} />
       </Routes>
     </Router>
   );

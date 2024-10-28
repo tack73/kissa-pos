@@ -26,7 +26,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { persons, orderItems, total, submitId, payment, isServed, tableNum ,isEatIn} = req.body;
+    const { persons, orderItems, total, submitId, payment, isServed, tableNum, isEatIn } = req.body;
     const order = new Order({
       persons,
       orderItems,
@@ -79,6 +79,88 @@ router.patch("/orderitems/:submitId/:orderId", (req, res) => { //submitId 内 or
     });
   });
 });
+
+router.get("/ordersAtDate/:year-:month-:day", (req, res) => {
+  console.log(req.params.year, req.params.month, req.params.day);
+  if (req.params.year === undefined ) {
+    console.log("No date specified");
+    return res.json({ "salesCash": 0, "salesSquare": 0, "items": [] });
+  } else {
+    const date = new Date(req.params.year, req.params.month - 1, req.params.day);
+    var results = {
+      salesCash: 0,
+      salesSquare: 0,
+      items: []
+    };
+    Order.find({ createdAt: { $gte: date, $lt: new Date(date.getTime() + 86400000) } }).then((orders) => {
+      orders.forEach((order) => {
+        order.payment === "cash" ? results.salesCash += order.total : results.salesSquare += order.total;
+        order.orderItems.forEach((v) => {
+          if (results.items[v.itemId]) {
+            results.items[v.itemId] += v.quantity;
+          } else {
+            results.items[v.itemId] = v.quantity;
+          }
+        });
+      });
+      const data = { 
+        "salesCash": results.salesCash,
+        "salesSquare": results.salesSquare,
+        "items": [
+          {
+            "name": "ジンジャーエール",
+            "quantity": results.items[1] ? results.items[1] : 0
+          },
+          {
+            "name": "アイスコーヒー",
+            "quantity": results.items[2] ? results.items[2] : 0
+          },
+          {
+            "name": "ホットコーヒー(mild)",
+            "quantity": results.items[3] ? results.items[3] : 0
+          },
+          {
+            "name": "ホットコーヒー(strong)",
+            "quantity": results.items[13] ? results.items[13] : 0
+          },
+          {
+            "name": "紅茶",
+            "quantity": results.items[4] ? results.items[4] : 0
+          },
+          {
+            "name": "リンゴジュース",
+            "quantity": results.items[5] ? results.items[5] : 0
+          },
+          {
+            "name": "ワッフル",
+            "quantity": results.items[6] ? results.items[6] : 0
+          },
+          {
+            "name": "フルーツミックスパフェ",
+            "quantity": results.items[7] ? results.items[7] : 0
+          },
+          {
+            "name": "抹茶パフェ",
+            "quantity": results.items[10] ? results.items[10] : 0
+          },
+          {
+            "name": "タルト",
+            "quantity": results.items[9] ? results.items[9] : 0
+          },
+          {
+            "name": "クロックムッシュ",
+            "quantity": results.items[11] ? results.items[11] : 0
+          },
+          {
+            "name": "コンソメスープ",
+            "quantity": results.items[12] ? results.items[12] : 0
+          }
+        ]
+      };
+      res.json(data);
+    });
+  }
+}); //日付を指定して注文を取得
 
 router.patch("/:submitId", (req, res) => { //submitId の注文を完了にする
   Order.findOne({ submitId: req.params.submitId }).then((order) => {
@@ -173,8 +255,8 @@ router.get("/info", (req, res) => {
     });
     res.json(info);
   });
-  
-  
+
+
 })
 
 
