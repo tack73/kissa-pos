@@ -3,7 +3,7 @@ import { useState } from "react";
 import Count from "../atoms/count.jsx";
 import AllergenView from "./allergenView.jsx";
 
-export default function Detail({ id, order, setOrder, setTarget}) {
+export default function Detail({ id, order, setOrder, setTarget,setIsEatIn,isEatIn }) {
   const [quantity, setQuantity] = useState(1);
 
   if (id === null) return <div className="detail"></div>;

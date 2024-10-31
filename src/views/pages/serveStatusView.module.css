@@ -16,9 +16,7 @@
     /* background-color: #f0f0f0; */
 }
 
-.container p{
-    text-shadow:0 0 10px #FF0;
-}
+
 
 .elementName{
     font-size: 25px;
@@ -34,7 +32,10 @@
     background-color: rgba(255, 255, 255, 0.8);
     background-blend-mode: lighten;
 } */
-
+.serveStatusView{
+    background-color: rgba(255, 255, 255, 0.9);
+  background-blend-mode: lighten;
+}
 .status{
     font-size: 20px;
     font-weight: bold;

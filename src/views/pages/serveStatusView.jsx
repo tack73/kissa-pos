@@ -5,7 +5,7 @@ import { TbTriangle } from "react-icons/tb";
 import { FaRegCircle } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import styles from "./serveStatusView.module.css";
-import movie from "../../video/statusMovie.mp4";
+import movie from "../../video/1_1.mp4";
 
 
 const app = new Realm.App({ id: "application-0-vmbzlrz" });
@@ -51,12 +51,12 @@ export default function ServeStatusView() {
         ) : element.status === 1 ? (
           <>
             <TbTriangle size={50} />
-            <p className={styles.status}></p>
+            <p className={styles.status}>待ち時間有</p>
           </>
         ) : (
           <>
             <RxCross2 size={50} />
-            <p className={styles.status}>提供中止・終了</p>
+            <p className={styles.status}>提供停止</p>
           </>
         )}
       </div>
@@ -65,11 +65,11 @@ export default function ServeStatusView() {
 
   return (
     <div className={styles.serveStatusView}>
-      <div className={styles.videoWrap}>
+      {/* <div className={styles.videoWrap}>
         <video autoPlay muted loop>
           <source src={movie} type="video/mp4" />
         </video>
-      </div>
+      </div> */}
       <div className={styles.statusList}>
         {status.map((element) => (
           <StatusItem element={element} />

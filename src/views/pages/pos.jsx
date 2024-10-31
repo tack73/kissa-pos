@@ -17,7 +17,8 @@ export default function PosView({
   tableNum,
   setTableNum,
   setSubmitId,
-  isEatIn
+  isEatIn,
+  setIsEatIn
 }) {
   return (
     <div className="App">
@@ -52,6 +53,7 @@ export default function PosView({
             persons={persons}
             setPersons={setPersons}
             isEatIn={isEatIn}
+            setIsEatIn={setIsEatIn}
           />
         </div>
       </div>

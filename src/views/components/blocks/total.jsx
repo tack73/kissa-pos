@@ -8,6 +8,7 @@ export default function Total({
   setOrder,
   setIsProcessing,
   isEatIn,
+  setIsEatIn,
   persons,
 setPersons
 }) {
@@ -20,7 +21,10 @@ setPersons
     <div className="total">
       <div className="total__title">
         <h1>注文内容</h1>
-        {isEatIn === true ? <>EAT IN</> : <>TAKE OUT</>}
+        <div className="backButton">
+        {isEatIn === true ? <button onClick={()=>{setIsEatIn(false)}}>EAT IN</button> : <button onClick={()=>{setIsEatIn(true)}}>TAKE OUT</button>}
+        </div>
+        
       </div>
       <div className="total__order">
         <Order order={order} setOrder={setOrder} />

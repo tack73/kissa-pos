@@ -44,6 +44,7 @@ function App() {
         setTableNum={setTableNum}
         setSubmitId={setSubmitId}
         isEatIn={isEatIn}
+        setIsEatIn={setIsEatIn}
       />
     );
   }
