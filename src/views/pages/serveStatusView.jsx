@@ -51,7 +51,7 @@ export default function ServeStatusView() {
         ) : element.status === 1 ? (
           <>
             <TbTriangle size={50} />
-            <p className={styles.status}>待ち時間有</p>
+            <p className={styles.status}>調理中</p>
           </>
         ) : (
           <>
